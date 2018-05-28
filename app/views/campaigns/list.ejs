@@ -1,7 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<% include ../shared/pageHeader %>
 <title><%- title %></title>
 <% include ../shared/header %>
 </head>
@@ -26,7 +23,10 @@
 	<tbody>
 <% for(var i=0; i < campaigns.length; i++) { %>
 		<tr>
-			<td><%= campaigns[i].slug %></td>
+			<td>
+				<a href="<%= campaigns[i].slug %>" title="<%= campaigns[i].title %>"><%= campaigns[i].slug %></a>
+				/ <a href="<%= campaigns[i].slug %>/done" title="Done page">done</a>
+			</td>
 			<td><%= formatDate(campaigns[i].dateCreated) %></td>
 			<td><%= campaigns[i].title %></td>
 		</tr>
@@ -34,4 +34,4 @@
 	</tbody>
 </table>
 
-<% include ../shared/footer %>
+<% include ../shared/pageFooter %>

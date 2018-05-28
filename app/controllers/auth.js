@@ -17,3 +17,10 @@ module.exports.authenticateRequest = function (req, res, next) {
 	}
 	next();
 };
+
+module.exports.authenticateListRequest = function (req, res, next) {
+	if (req.method === 'GET' && req.query.password !== process.env.API_PASSWORD) {
+		return res.sendStatus(401)
+	}
+	next();
+};

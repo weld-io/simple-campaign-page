@@ -2,6 +2,7 @@
 
 const _ = require('lodash');
 const moment = require('moment');
+const mongoose = require('mongoose');
 
 module.exports = function (app, config) {
 
@@ -205,6 +206,29 @@ module.exports.changeReferenceToId = function ({modelName, parentCollection, chi
 		}
 		next(err, results);
 	});
+};
+
+module.exports.toSlug = function (str, removeInternationalChars) {
+	// Abort if not a proper string value
+	if (!str || typeof(str) !== 'string')
+		return str;
+	// For both: change space/underscore
+	var newStr = str.trim()
+		.toLowerCase()
+		.replace(/ /g, '-') // space to dash
+		.replace(/_/g, '-') // underscore to dash
+	// Remove ÅÄÖ etc?
+	if (removeInternationalChars) {
+		newStr = newStr.replace(/[^\w-]+/g, ''); // remove all other characters incl. ÅÄÖ
+	}
+	else {
+		newStr = newStr.replace(/[\t.,?;:‘’“”"'`!@#$€%^&§°*<>™()\[\]{}_\+=\/\|\\]/g, ''); // remove invalid characters but keep ÅÄÖ etc
+	}
+	// For both: remove multiple dashes
+	newStr = newStr.replace(/---/g, '-') // fix for the ' - ' case
+		.replace(/--/g, '-') // fix for the '- ' case
+		.replace(/--/g, '-'); // fix for the '- ' case
+	return newStr;
 };
 
 module.exports.getUniqueSlug = function (existingSlugsArray, newWord, options={}) {

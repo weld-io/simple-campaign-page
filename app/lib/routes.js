@@ -14,9 +14,7 @@ module.exports = function (app, config) {
 	// Web
 	var webCampaignsController = require(config.root + '/app/controllers/web/campaigns');
 
-	router.get('/translate/:languageCode/:id', webCampaignsController.translateAndRedirect);
-
-	router.get('/:languageCode/:slug', webCampaignsController.showTranslated);
+	router.get('/:slug/done', webCampaignsController.showDone);
 	router.get('/:slug', webCampaignsController.show);
 	router.get('/', webCampaignsController.list);
 

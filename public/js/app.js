@@ -42,10 +42,23 @@ var SimpleCampaignPage = SimpleCampaignPage || {};
 		// var comment = prompt('Your own comment why this is a good campaign\n(no period/exclamation point at the end)');
 		// if (comment) jsonObj.comment = comment;
 		apiRequest('post', 'campaigns', undefined, jsonObj, password, function(result) {
-			console.log(`result:`, result, 'post', 'campaigns', undefined, jsonObj, password);
+			location.reload();
+			//location.href = '/' + result.slug;
+		});
+	};
+
+	SimpleCampaignPage.addPerson = function (campaignId) {
+		console.log(`addPerson:`, arguments);
+		var jsonObj = {
+			campaign: campaignId,
+			email: document.getElementById('email').value,
+		};
+		apiRequest('post', 'people', undefined, jsonObj, undefined, function(result) {
+			console.log(`result:`, result);
 			//location.reload();
 			//location.href = '/' + result.slug;
 		});
+		return false;
 	};
 
 	SimpleCampaignPage.addComment = function (campaignId, password) {
