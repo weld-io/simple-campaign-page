@@ -1,0 +1,200 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'weld-light', sans-serif;
+	font-size: 3vh;
+}
+
+h1 {
+	font-size: 2em;
+	text-align: center;
+}
+
+main {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.small {
+	font-size: 0.7em;
+}
+
+/* Campaign/Ad frames */
+
+section {
+	width: 100%;
+	padding: 1em;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.hero {
+	justify-content: space-around;
+	background-size: cover;
+	background-color: #71c8db;
+	color: white;
+	height: 50%;
+}
+
+.tagline {
+	text-align: center;
+}
+
+.form {
+	flex-direction: row;
+	justify-content: center;
+	background-color: whitesmoke;
+}
+@media (max-width: 480px) {
+	.form {
+		flex-direction: column;
+	}
+	input, button {
+		min-width: unset !important;
+		width: 100%;
+	}
+}
+
+.fineprint {
+	font-size: 0.7em;
+	background-color: dimgray;
+	color: white;
+	position: absolute;
+	bottom: 0;
+}
+
+
+/* ----- Admin page ----- */
+.actions button,
+.action-button {
+	background-color: limegreen;
+	color: white;
+	font-size: 0.8em;
+	padding: 0.5em 1em;
+	min-width: auto;
+	width: auto;
+}
+
+/* ----- Nice & Simple components ----- */
+
+/* Nice & simple: Links */
+a {
+	color: dodgerblue;
+	text-decoration: none;
+	border-bottom: 1px dotted rgba(30, 143, 255, 0); /* dodgerblue transparent */
+	transition: all 0.2s;
+}
+a:hover {
+	opacity: 0.8;
+	border-bottom: 1px dotted dodgerblue;
+}
+
+label {
+	max-width: 20em;
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+label input {
+	width: auto;
+	flex: 1;
+}
+
+
+/* Nice & simple: Button - http://codepen.io/tomsoderlund/pen/qqyzqp */
+button {
+	background-color: dodgerblue;
+	color: white;
+	border-radius: 0.2em;
+	border: none;
+	box-shadow: 0 0.125em 0.125em rgba(0,0,0, 0.3);
+	box-sizing: border-box;
+	cursor: pointer;
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: bold;
+	min-width: 15em;
+	padding: 0.6em;
+	margin: 0.2em;
+	transition: all 0.2s;
+}
+button:hover:not(:disabled) {
+	margin-top: 0.1em;
+	margin-bottom: 0.3em;
+	box-shadow: 0 0.2em 0.1em rgba(0,0,0, 0.2);
+}
+button:hover:active {
+	margin-top: 0.3em;
+	margin-bottom: 0.1em;
+	box-shadow: 0 0.02em 0.125em rgba(0,0,0, 0.4);
+	transition: all 0.05s;
+}
+button:disabled {
+	cursor: initial;
+	background-color: silver;
+}
+
+/* Nice & simple: Input and Dropdown Menu - http://codepen.io/tomsoderlund/pen/GNBbWz */
+input,
+textarea,
+select {
+	background-color: white;
+	color: inherit;
+	outline: none;
+	resize: none;
+	box-shadow: inset 0 0.125em 0.125em rgba(0,0,0, 0.3);
+	box-sizing: border-box;
+	border-radius: 0.2em;
+	border: 2px solid lightgray;
+	font-family: inherit;
+	font-size: inherit;
+	min-width: 15em;
+	padding: 0.6em;
+	margin: 0.2em;
+}
+input:hover:not(:disabled),
+textarea:hover:not(:disabled),
+select:hover:not(:disabled) {
+	border-color: silver;
+}
+input:focus,
+textarea:focus,
+select:focus {
+	border-color: darkgray;
+}
+input:disabled,
+textarea:disabled,
+select:disabled {
+	background-color: whitesmoke;
+}
+input::placeholder {
+	color: lightgray;
+}
+
+/* Nice & simple: Table - https://codepen.io/tomsoderlund/pen/mmZrRR */
+table {
+	border-collapse: collapse;
+}
+
+td, th {
+	padding: 0.5em;
+}
+
+thead tr {
+	background-color: #708090;
+	color: white;
+}
+
+tr:nth-child(2n+0) {
+	background-color: #cfd5da;
+}

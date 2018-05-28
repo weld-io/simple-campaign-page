@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title><%- title %></title>
+<% include ../shared/header %>
+</head>
+
+<body>
+<main>
+
+<h1>Campaigns</h1>
+
+<% if (isAuthenticated) { %>
+	<div class="actions"><button onclick="SimpleCampaignPage.addCampaign('<%= password %>')">Add campaign</button></div>
+<% } %>
+
+<table>
+	<thead>
+		<tr>
+			<th>Slug</th>
+			<th>Date</th>
+			<th>Title</th>
+		</tr>
+	</thead>
+	<tbody>
+<% for(var i=0; i < campaigns.length; i++) { %>
+		<tr>
+			<td><%= campaigns[i].slug %></td>
+			<td><%= formatDate(campaigns[i].dateCreated) %></td>
+			<td><%= campaigns[i].title %></td>
+		</tr>
+<% } %>
+	</tbody>
+</table>
+
+<% include ../shared/footer %>

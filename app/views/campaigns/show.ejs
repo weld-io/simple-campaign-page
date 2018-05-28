@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title><%- campaign.title %></title>
+<meta property="og:site_name" content="<%= campaign.title %>">
+<meta property="og:title" content="<%= campaign.title %>">
+<meta name="twitter:title" content="<%= campaign.title %>">
+<meta name="description" content="<%= campaign.tagline %>">
+<meta property="og:description" content="<%= campaign.tagline %>">
+<meta name="twitter:description" content="<%= campaign.tagline %>">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@Weld_io">
+<meta name="twitter:creator" content="@Weld_io">
+<meta property="og:image" content="<%- campaign.imageUrl %>">
+<meta name="twitter:image" content="<%- campaign.imageUrl %>">
+<% include ../shared/header %>
+</head>
+
+<body>
+<main>
+
+	<section class="hero" style="background-image: url(<%= campaign.imageUrl %>);">
+		<h1><%= campaign.title %></h1>
+		<p class="tagline"><%= campaign.tagline %></p>
+	</section>
+	<section class="form">
+		<input type="text" placeholder="Enter your work email" value="">
+		<button type="submit">Sign up</button>
+	</section>
+	<section class="description">
+		<%= campaign.description %>
+	</section>
+	<section class="fineprint">
+		This is a campaign by Weld (Weld Your Own App AB). For questions or if you want to be removed, email contact@weld.io.
+	</section>
+
+<% include ../shared/footer %>
