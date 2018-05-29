@@ -25,8 +25,7 @@ var SimpleCampaignPage = SimpleCampaignPage || {};
 			: document.getElementById(elementId).removeAttribute('disabled');
 	};
 
-	SimpleCampaignPage.addPerson = function (campaignId) {
-		console.log(`addPerson:`, arguments);
+	SimpleCampaignPage.addPerson = function (campaignId, slug) {
 		var jsonObj = {
 			campaign: campaignId,
 			email: document.getElementById('email').value,
@@ -37,20 +36,29 @@ var SimpleCampaignPage = SimpleCampaignPage || {};
 			console.log(`result:`, result);
 			SimpleCampaignPage.setElementDisabled('email', false);
 			SimpleCampaignPage.setElementDisabled('submitButton', false);
-			location.href = location.pathname + '/done';
+			SimpleCampaignPage.trackSignup(slug, function () {
+				location.href = location.pathname + '/done';
+			});
 		});
 		return false;
 	};
 
-	SimpleCampaignPage.trackClickCampaign = function (slug, languageCode) {
-		gtag('event', 'select_content', { content_type: slug, content: slug, language: languageCode });
+	// Event codes: https://developers.google.com/analytics/devguides/collection/gtagjs/enhanced-ecommerce
+	SimpleCampaignPage.trackSignup = function (slug, cb) {
+		gtag('event', 'sign_up', {
+			content: slug,
+			event_callback: cb,
+		});
 	};
 
-	SimpleCampaignPage.trackClickAd = function (event, slug, languageCode) {
+	SimpleCampaignPage.trackGetContent = function (event, slug) {
 		event.preventDefault();
-		gtag('event', 'view_promotion', { content: slug, language: languageCode, event_callback: function () {
-			location.href = event.target.parentElement.getAttribute('href');
-		} });
+		gtag('event', 'get_content', {
+			content: slug,
+			event_callback: function () {
+				location.href = event.target.getAttribute('href');
+			}
+		});
 	};
 
 }(SimpleCampaignPage));

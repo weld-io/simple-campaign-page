@@ -7,14 +7,14 @@
 <body>
 <main class="page-show-done">
 
-	<section class="hero" style="background-image: url(<%= campaign.imageUrl %>);">
+	<section class="hero<%= campaign.darkText ? ' dark-text' : '' %>" style="background-image: url(<%= campaign.imageUrl %>);">
 		<h1><%= campaign.title %></h1>
 	</section>
 	<section class="done">
 		<p><%= getText(campaign, 'doneText', defaults) %></p>
 <% if (campaign.ctaUrl) { %>
 		<p>
-			<a class="button" href="<%= campaign.ctaUrl %>" title=""><%= getText(campaign, 'ctaTitle', defaults) %></a>
+			<a class="button" href="<%= campaign.ctaUrl %>" onclick="SimpleCampaignPage.trackGetContent(event, '<%= campaign.slug %>')"><%= getText(campaign, 'ctaTitle', defaults) %></a>
 		</p>
 <% } %>
 	</section>

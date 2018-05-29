@@ -8,32 +8,13 @@ module.exports = function (app, config) {
 
 	// To string. Months are zero-based
 	app.locals.formatDate = function (dateObj) {
-		return moment(dateObj).format("YYYY-MM-DD HH:mm");
+		return moment(dateObj).format('YYYY-MM-DD'); // HH:mm
 	};
 
 	app.locals.getText = (obj, field, defaults) => obj[field] || defaults[field];
 
 	// Google Analytics
 	app.locals.getGoogleAnalyticsId = () => process.env.GOOGLE_ANALYTICS_ID || 'GOOGLE_ANALYTICS_ID not defined';
-
-	app.locals.getTranslatedLink = function (campaign, languageName, languageCode, currentLanguageCode) {
-
-		const makeLink = (link, text, title) => `<a href="${link}">${text}</a>`;
-
-		const existingTranslation = _.find(campaign.translations, { languageCode: languageCode });
-		if (languageCode === currentLanguageCode) {
-			return `<span class="currentLanguage">${languageName}</span>`;
-		}
-		else if (languageCode === campaign.languageCode) {
-			return makeLink(`/${campaign.originalSlug}`, languageName);
-		}
-		else if (existingTranslation) {
-			return makeLink(`/${languageCode}/${existingTranslation.slug}`, languageName);
-		}
-		else {
-			return makeLink(`/translate/${languageCode}/${campaign._id}`, languageName);
-		}
-	};
 
 	app.locals.editButton = function (campaignId, fieldName, defaultValue, isAuthenticated, password, label='Edit') {
 		defaultValue = typeof(defaultValue) === 'object' ? `'[${defaultValue}]'` : `'${defaultValue}'`;
@@ -143,25 +124,6 @@ module.exports.stripIdsFromRet = function (doc, ret, options) {
 	delete ret._id;
 	delete ret.__v;
 };
-// module.exports.stripIdsFromThis = function (options) {
-// 	let newObj = this.toObject();
-// 	delete newObj._id;
-// 	delete newObj.__v;
-// 	return newObj;
-// }
-// const stripIdsFromObject = (options, obj) => module.exports.stripIdsFromThis.call(obj, options);
-
-// module.exports.stripIdsFromResult = function (options, req, res, next) {
-// 	if (req.crudify.result.length !== undefined) {
-// 		// Array
-// 		req.crudify.result = _.map(req.crudify.result, stripIdsFromObject.bind(this, options));
-// 	}
-// 	else {
-// 		// One object
-// 		req.crudify.result = stripIdsFromObject(options, req.crudify.result);
-// 	}
-// 	next();
-// };
 
 // E.g. populate user.account with full Account structure
 // helpers.populateProperties.bind(this, 'user', 'account')
