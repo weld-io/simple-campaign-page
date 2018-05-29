@@ -37,6 +37,12 @@ Server will default to **http://localhost:3041**
 * **Ad**: an ad banner to show.
 
 
+## Todo
+
+- [ ] Set responsive image with window.innerWidth / window.devicePixelRatio
+- [ ] YouTube video support
+
+
 ## REST API
 
 ### Campaigns
