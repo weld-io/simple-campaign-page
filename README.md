@@ -60,6 +60,10 @@ Create new campaign:
 
 	curl -X POST -H "Content-Type: application/json" http://localhost:3041/api/campaigns?password=[API_PASSWORD] -d '{ "title": "My Awesome Campaign" }'
 
+Duplicate an existing campaign:
+
+	curl -X POST -H "Content-Type: application/json" http://localhost:3041/api/campaigns/duplicate?password=[API_PASSWORD] -d '{ "_id": "XXXX" }'
+
 Update an campaign:
 
 	curl -X PUT -H "Content-Type: application/json" http://localhost:3041/api/campaigns/[CAMPAIGN_ID]?password=[API_PASSWORD] -d '{}'

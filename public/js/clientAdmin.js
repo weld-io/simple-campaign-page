@@ -30,13 +30,18 @@ var SimpleCampaignPageAdmin = SimpleCampaignPageAdmin || {};
 	};
 
 	SimpleCampaignPageAdmin.duplicateCampaign = function (campaignId, password) {
-		alert(`Not implemented: duplicate: "${campaignId}"`);
+		SimpleCampaignPage.apiRequest('post', 'campaigns/duplicate', undefined, { _id: campaignId }, password, function (result) {
+			location.reload();
+		});			
 	};
 
 	SimpleCampaignPageAdmin.deleteCampaign = function (campaignId, password) {
 		console.log(`delete: "${campaignId}"`);
 		if (confirm('Delete this campaign and all users belonging to it?')) {
 			SimpleCampaignPage.apiRequest('delete', 'campaigns', campaignId, undefined, password, function (result) {
+				location.reload();
+			},
+			function (err) {
 				location.reload();
 			});			
 		}
