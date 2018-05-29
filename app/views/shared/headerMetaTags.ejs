@@ -1,9 +1,9 @@
 <meta property="og:site_name" content="<%= campaign.title %>">
 <meta property="og:title" content="<%= campaign.title %>">
 <meta name="twitter:title" content="<%= campaign.title %>">
-<meta name="description" content="<%= campaign.tagline %>">
-<meta property="og:description" content="<%= campaign.tagline %>">
-<meta name="twitter:description" content="<%= campaign.tagline %>">
+<meta name="description" content="<%= campaign.tagline || campaign.description %>">
+<meta property="og:description" content="<%= campaign.tagline || campaign.description %>">
+<meta name="twitter:description" content="<%= campaign.tagline || campaign.description %>">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@Weld_io">
