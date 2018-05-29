@@ -31,8 +31,12 @@ var SimpleCampaignPage = SimpleCampaignPage || {};
 			campaign: campaignId,
 			email: document.getElementById('email').value,
 		};
+		SimpleCampaignPage.setElementDisabled('email', true);
+		SimpleCampaignPage.setElementDisabled('submitButton', true);
 		SimpleCampaignPage.apiRequest('post', 'people', undefined, jsonObj, undefined, function(result) {
 			console.log(`result:`, result);
+			SimpleCampaignPage.setElementDisabled('email', false);
+			SimpleCampaignPage.setElementDisabled('submitButton', false);
 			location.href = location.pathname + '/done';
 		});
 		return false;

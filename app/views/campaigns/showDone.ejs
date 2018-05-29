@@ -13,10 +13,10 @@
 	</section>
 	<section class="done">
 		<p><%= getText(campaign, 'doneText', defaults) %></p>
+<% if (campaign.ctaUrl) { %>
 		<p>
 			<a class="button" href="<%= campaign.ctaUrl %>" title=""><%= getText(campaign, 'ctaTitle', defaults) %></a>
 		</p>
-<% if (campaign.ctaUrl) { %>
 <% } %>
 	</section>
 	<section class="fineprint">

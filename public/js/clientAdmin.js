@@ -4,7 +4,7 @@ var SimpleCampaignPageAdmin = SimpleCampaignPageAdmin || {};
 
 ;(function (SimpleCampaignPageAdmin) {
 
-	SimpleCampaignPage.editDataField = function (collectionName, recordId, fieldName, defaultValue, password) {
+	SimpleCampaignPageAdmin.editDataField = function (collectionName, recordId, fieldName, defaultValue, password) {
 		var newData = {};
 		var newDefaultValue = defaultValue.replace(/[\[\]]/g, ''); // array, remove []
 		newData[fieldName] = prompt(fieldName + '?', newDefaultValue);

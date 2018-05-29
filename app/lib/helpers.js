@@ -35,10 +35,14 @@ module.exports = function (app, config) {
 		}
 	};
 
-	app.locals.editButton = function (campaignId, fieldName, defaultValue, isAuthenticated, password) {
+	app.locals.editButton = function (campaignId, fieldName, defaultValue, isAuthenticated, password, label='Edit') {
 		defaultValue = typeof(defaultValue) === 'object' ? `'[${defaultValue}]'` : `'${defaultValue}'`;
-		console.log('defaultValue', defaultValue, typeof(defaultValue));
-		return isAuthenticated ? `<button class="action-button" onclick="SimpleCampaignPage.editDataField('campaigns', '${campaignId}', '${fieldName}', ${defaultValue}, '${password}')">Edit</button>` : '';
+		return isAuthenticated ? `<button class="action-button edit-button" onclick="SimpleCampaignPageAdmin.editDataField('campaigns', '${campaignId}', '${fieldName}', ${defaultValue}, '${password}')">${label}</button>` : '';
+	};
+
+	app.locals.editLink = function (campaignId, fieldName, defaultValue, isAuthenticated, password, label='Edit') {
+		defaultValue = typeof(defaultValue) === 'object' ? `'[${defaultValue}]'` : `'${defaultValue}'`;
+		return isAuthenticated ? `<a class="edit-link" onclick="SimpleCampaignPageAdmin.editDataField('campaigns', '${campaignId}', '${fieldName}', ${defaultValue}, '${password}')">${label}</a>` : '';
 	};
 
 };

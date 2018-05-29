@@ -8,12 +8,14 @@ const helpers = require('../lib/helpers');
 const campaignSchema = {
 	dateCreated: { type: Date, default: Date.now },
 	slug: { type: String, required: true, unique: true },
+	// Texts
 	title: { type: String, required: true },
 	tagline: { type: String },
 	description: { type: String },
 	ctaTitle: { type: String },
-	ctaUrl: { type: String },
 	doneText: { type: String },
+	// Links
+	ctaUrl: { type: String }, // e.g. download something
 	imageUrl: { type: String },
 	videoUrl: { type: String },
 };

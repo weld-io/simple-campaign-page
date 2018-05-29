@@ -106,7 +106,7 @@ a {
 	border-bottom: 1px dotted rgba(30, 143, 255, 0); /* dodgerblue transparent */
 	transition: all 0.2s;
 }
-a:hover {
+a:hover:not(.button) {
 	opacity: 0.8;
 	border-bottom: 1px dotted dodgerblue;
 }
@@ -128,7 +128,7 @@ label input {
 /* Nice & simple: Button - http://codepen.io/tomsoderlund/pen/qqyzqp */
 button,
 .button {
-	background-color: dodgerblue;
+	background-color: #71c8db;
 	color: white;
 	border-radius: 0.2em;
 	border: none;
@@ -142,7 +142,10 @@ button,
 	padding: 0.6em;
 	margin: 0.2em;
 	transition: all 0.2s;
+	outline: none;
 }
+button:focus:not(:disabled),
+.button:focus:not(:disabled),
 button:hover:not(:disabled),
 .button:hover:not(:disabled) {
 	margin-top: 0.1em;

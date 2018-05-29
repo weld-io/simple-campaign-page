@@ -19,6 +19,7 @@
 				<th>Slug</th>
 				<th>Date</th>
 				<th>Title</th>
+				<th>Edit</th>
 				<th>Results</th>
 				<th>Actions</th>
 			</tr>
@@ -31,7 +32,18 @@
 					/ <a href="<%= campaigns[i].slug %>/done" title="Done page">page2</a>
 				</td>
 				<td><%= formatDate(campaigns[i].dateCreated) %></td>
-				<td><%= campaigns[i].title %></td>
+				<td>
+					<h3><%- editLink(campaigns[i]._id, 'title', campaigns[i].title, isAuthenticated, password, campaigns[i].title) %></h3>
+					<p><%- editLink(campaigns[i]._id, 'tagline', campaigns[i].tagline, isAuthenticated, password, campaigns[i].tagline || '(add tagline)') %></p>
+				</td>
+				<td>
+					<%- editButton(campaigns[i]._id, 'description', campaigns[i].description, isAuthenticated, password, 'Description') %>
+					<%- editButton(campaigns[i]._id, 'imageUrl', campaigns[i].imageUrl, isAuthenticated, password, 'Image') %>
+					<hr>
+					<%- editButton(campaigns[i]._id, 'ctaTitle', campaigns[i].ctaTitle, isAuthenticated, password, 'CTA') %>
+					<%- editButton(campaigns[i]._id, 'ctaUrl', campaigns[i].ctaUrl, isAuthenticated, password, 'Link') %>
+					<%- editButton(campaigns[i]._id, 'doneText', campaigns[i].doneText, isAuthenticated, password, '“Thank you”') %>
+				</td>
 				<td>
 					<a href="/api/people?campaign=<%= campaigns[i]._id %>&password=<%= password %>">People list</a>
 				</td>
