@@ -9,6 +9,8 @@ var SimpleCampaignPageAdmin = SimpleCampaignPageAdmin || {};
 		var newDefaultValue = defaultValue.replace(/[\[\]]/g, ''); // array, remove []
 		newData[fieldName] = prompt(fieldName + '?', newDefaultValue);
 		if (newData[fieldName] !== null) {
+			// If boolean
+			if (newData[fieldName] === 'true') newData[fieldName] = true;
 			// If array, then split
 			if (defaultValue.indexOf('[') !== -1) {
 				newData[fieldName] = newData[fieldName].split(',');

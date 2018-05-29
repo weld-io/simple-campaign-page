@@ -28,7 +28,7 @@ main {
 	cursor: pointer;
 }
 
-/* Campaign/Ad frames */
+/* Campaigns */
 
 section {
 	width: 100%;
@@ -43,9 +43,13 @@ section {
 .hero {
 	justify-content: space-around;
 	background-size: cover;
+	height: 50%;
 	background-color: #71c8db;
 	color: white;
-	height: 50%;
+}
+
+.hero.dark-text {
+	color: black;
 }
 
 .page-show-done .hero {

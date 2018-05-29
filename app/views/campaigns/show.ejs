@@ -7,7 +7,7 @@
 <body>
 <main class="page-show">
 
-	<section class="hero" style="background-image: url(<%= campaign.imageUrl %>);">
+	<section class="hero<%= campaign.darkText ? ' dark-text' : '' %>" style="background-image: url(<%= campaign.imageUrl %>?auto=format&fit=max&w=1280&dpr=2&q=70);">
 		<h1><%= campaign.title %></h1>
 <% if (campaign.tagline) { %>
 		<p class="tagline"><%= campaign.tagline %></p>

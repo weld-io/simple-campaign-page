@@ -22,6 +22,8 @@ const campaignSchema = {
 	ctaUrl: { type: String }, // e.g. download something
 	imageUrl: { type: String },
 	videoUrl: { type: String },
+	// Styles
+	darkText: { type: Boolean },
 };
 
 const valueDefaults = {
