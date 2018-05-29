@@ -111,6 +111,18 @@ a:hover:not(.button) {
 	border-bottom: 1px dotted dodgerblue;
 }
 
+a.edit-link {
+	color: dimgray;
+}
+
+/* Nice & simple: Horisontal rule */
+hr {
+	border: 0;
+	height: 1px;
+	margin: 0.3em 0;
+	background: rgba(0,0,0, 0.2);
+}
+
 label {
 	max-width: 20em;
 	margin: auto;

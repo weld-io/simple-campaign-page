@@ -28,7 +28,7 @@ var SimpleCampaignPageAdmin = SimpleCampaignPageAdmin || {};
 	};
 
 	SimpleCampaignPageAdmin.duplicateCampaign = function (campaignId, password) {
-		console.log(`duplicate: "${campaignId}"`);
+		alert(`Not implemented: duplicate: "${campaignId}"`);
 	};
 
 	SimpleCampaignPageAdmin.deleteCampaign = function (campaignId, password) {
