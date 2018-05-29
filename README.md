@@ -11,9 +11,10 @@ Made by the team at **Weld** ([www.weld.io](https://www.weld.io?utm_source=githu
 
 ## How to Run
 
-(Optional) Set API password:
+(Optional) Set variables:
 
 	export API_PASSWORD=xxx
+	export GOOGLE_ANALYTICS_ID=UA-xxx
 
 Start with:
 
