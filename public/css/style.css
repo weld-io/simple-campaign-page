@@ -46,10 +46,12 @@ section {
 	height: 50%;
 	background-color: #71c8db;
 	color: white;
+	text-shadow: 0 0.05em 0.3em rgba(0,0,0, 0.9);
 }
 
 .hero.dark-text {
 	color: black;
+	text-shadow: 0 0.05em 0.3em rgba(255,255,255, 0.9);
 }
 
 .page-show-done .hero {
@@ -83,7 +85,7 @@ section {
 
 .fineprint {
 	font-size: 0.6em;
-	background-color: dimgray;
+	background-color: gray;
 	color: white;
 	position: absolute;
 	bottom: 0;
