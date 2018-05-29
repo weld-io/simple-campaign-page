@@ -54,7 +54,7 @@ List campaigns
 
 Get a specific campaign
 
-	curl http://localhost:3041/api/campaigns/[UPDATE_ID]?password=[API_PASSWORD]
+	curl http://localhost:3041/api/campaigns/[CAMPAIGN_ID]?password=[API_PASSWORD]
 
 Create new campaign:
 
@@ -62,11 +62,11 @@ Create new campaign:
 
 Update an campaign:
 
-	curl -X PUT -H "Content-Type: application/json" http://localhost:3041/api/campaigns/[UPDATE_ID]?password=[API_PASSWORD] -d '{}'
+	curl -X PUT -H "Content-Type: application/json" http://localhost:3041/api/campaigns/[CAMPAIGN_ID]?password=[API_PASSWORD] -d '{}'
 
 Delete campaign:
 
-	curl -X DELETE http://localhost:3041/api/campaigns/[UPDATE_ID]?password=[API_PASSWORD]
+	curl -X DELETE http://localhost:3041/api/campaigns/[CAMPAIGN_ID]?password=[API_PASSWORD]
 
 Delete all campaigns:
 
