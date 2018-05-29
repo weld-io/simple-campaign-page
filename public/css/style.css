@@ -45,11 +45,14 @@ section {
 	background-size: cover;
 	height: 50%;
 	background-color: #71c8db;
+}
+
+.light-text {
 	color: white;
 	text-shadow: 0 0.05em 0.3em rgba(0,0,0, 0.9);
 }
 
-.hero.dark-text {
+.dark-text {
 	color: black;
 	text-shadow: 0 0.05em 0.3em rgba(255,255,255, 0.9);
 }
@@ -118,7 +121,7 @@ a:hover:not(.button) {
 }
 
 a.edit-link {
-	color: dimgray;
+	color: inherit;
 }
 
 /* Nice & simple: Horisontal rule */

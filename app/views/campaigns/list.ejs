@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<main>
+<main class="page-admin-list">
 
 <h1>Campaigns</h1>
 
@@ -19,7 +19,6 @@
 				<th>Slug</th>
 				<th>Date</th>
 				<th>Title</th>
-				<th>Edit</th>
 				<th>Results</th>
 				<th>Actions</th>
 			</tr>
@@ -33,7 +32,10 @@
 					<%- editButton(campaigns[i]._id, 'slug', campaigns[i].slug, isAuthenticated, password, 'Slug') %>
 				</td>
 				<td><%= formatDate(campaigns[i].dateCreated) %></td>
-				<td>
+				<td
+					class="hero<%= campaigns[i].darkText ? ' dark-text' : ' light-text' %>"
+					style="background-image: url(<%= campaigns[i].imageUrl %>?auto=format&fit=max&w=500&dpr=2&q=70);"
+					>
 					<h3><%- editLink(campaigns[i]._id, 'title', campaigns[i].title, isAuthenticated, password, campaigns[i].title) %></h3>
 					<p><%- editLink(campaigns[i]._id, 'tagline', campaigns[i].tagline, isAuthenticated, password, campaigns[i].tagline || '(add tagline)') %></p>
 					<hr>
@@ -46,9 +48,7 @@
 					<%- editButton(campaigns[i]._id, 'doneText', campaigns[i].doneText, isAuthenticated, password, '“Thank you”') %>
 				</td>
 				<td>
-				</td>
-				<td>
-					<a href="/api/people?campaign=<%= campaigns[i]._id %>&password=<%= password %>">People list</a>
+					<a href="/api/people?campaign=<%= campaigns[i]._id %>&password=<%= password %>">List</a>
 				</td>
 				<td>
 					<a onclick="SimpleCampaignPageAdmin.duplicateCampaign('<%= campaigns[i]._id %>', '<%= password %>')"><span class="clickable icon icon-duplicate"></span></a>
