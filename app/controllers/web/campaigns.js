@@ -43,12 +43,13 @@ module.exports = {
 	},
 
 	show: function (req, res, next) {
+		console.log(`req.query:`, req.query);
 		Campaign.findOne({ slug: req.params.slug }).exec(function (err, campaign) {
 			if (err || campaign === null) {
 				return next(err);
 			}
 			res.render('campaigns/show', {
-				title: 'Campaign',
+				pageTitle: req.query.title || campaign.title,
 				campaign: campaign,
 				defaults: campaignData.defaults,
 				isAuthenticated: auth.isAuthenticated(req),
@@ -63,7 +64,7 @@ module.exports = {
 				return next(err);
 			}
 			res.render('campaigns/showDone', {
-				title: 'Campaign - done',
+				pageTitle: req.query.title || campaign.title,
 				campaign: campaign,
 				defaults: campaignData.defaults,
 				isAuthenticated: auth.isAuthenticated(req),

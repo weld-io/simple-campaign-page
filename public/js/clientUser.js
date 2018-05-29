@@ -37,7 +37,7 @@ var SimpleCampaignPage = SimpleCampaignPage || {};
 			SimpleCampaignPage.setElementDisabled('email', false);
 			SimpleCampaignPage.setElementDisabled('submitButton', false);
 			SimpleCampaignPage.trackSignup(slug, function () {
-				location.href = location.pathname + '/done';
+				location.href = location.href.replace(location.pathname, location.pathname + '/done');
 			});
 		});
 		return false;

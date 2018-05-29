@@ -1,5 +1,5 @@
 <% include ../shared/pageHeader %>
-<title><%- campaign.title %></title>
+<title><%- pageTitle %></title>
 <% include ../shared/headerMetaTags %>
 <% include ../shared/headerIncludes %>
 </head>
@@ -8,7 +8,7 @@
 <main class="page-show">
 
 	<section class="hero<%= campaign.darkText ? ' dark-text' : '' %>" style="background-image: url(<%= campaign.imageUrl %>?auto=format&fit=max&w=1280&dpr=2&q=70);">
-		<h1><%= campaign.title %></h1>
+		<h1><%= pageTitle %></h1>
 <% if (campaign.tagline) { %>
 		<p class="tagline"><%= campaign.tagline %></p>
 <% } %>
