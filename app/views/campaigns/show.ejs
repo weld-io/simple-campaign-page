@@ -1,27 +1,27 @@
 <% include ../shared/pageHeader %>
 <title><%- campaign.title %></title>
 <% include ../shared/headerMetaTags %>
-<% include ../shared/header %>
+<% include ../shared/headerIncludes %>
 </head>
 
 <body>
-<main>
+<main class="page-show">
 
 	<section class="hero" style="background-image: url(<%= campaign.imageUrl %>);">
 		<h1><%= campaign.title %></h1>
+<% if (campaign.tagline) { %>
 		<p class="tagline"><%= campaign.tagline %></p>
+<% } %>
 	</section>
 	<section class="form">
 		<form onsubmit="return SimpleCampaignPage.addPerson('<%= campaign._id %>');">
-			<input id="email" type="email" placeholder="Enter your work email">
-			<button type="submit">Sign up</button>
+			<input id="email" type="email" placeholder="<%= getText(campaign, 'emailPlaceholder', defaults) %>">
+			<button type="submit"><%= getText(campaign, 'ctaTitle', defaults) %></button>
 		</form>
 	</section>
 	<section class="description">
 		<%= campaign.description %>
 	</section>
-	<section class="fineprint">
-		This is a campaign by Weld (Weld Your Own App AB). For questions or if you want to be removed, email contact@weld.io.
-	</section>
+	<section class="fineprint"><%= getText(campaign, 'pageFooter', defaults) %></section>
 
 <% include ../shared/pageFooter %>

@@ -24,6 +24,10 @@ main {
 	font-size: 0.7em;
 }
 
+.clickable {
+	cursor: pointer;
+}
+
 /* Campaign/Ad frames */
 
 section {
@@ -42,6 +46,10 @@ section {
 	background-color: #71c8db;
 	color: white;
 	height: 50%;
+}
+
+.page-show-done .hero {
+	height: 25%;
 }
 
 .tagline {
@@ -63,8 +71,14 @@ section {
 	}
 }
 
+.done {
+	justify-content: space-around;
+	height: 20%;
+	background-color: whitesmoke;
+}
+
 .fineprint {
-	font-size: 0.7em;
+	font-size: 0.6em;
 	background-color: dimgray;
 	color: white;
 	position: absolute;
@@ -112,7 +126,8 @@ label input {
 
 
 /* Nice & simple: Button - http://codepen.io/tomsoderlund/pen/qqyzqp */
-button {
+button,
+.button {
 	background-color: dodgerblue;
 	color: white;
 	border-radius: 0.2em;
@@ -128,18 +143,21 @@ button {
 	margin: 0.2em;
 	transition: all 0.2s;
 }
-button:hover:not(:disabled) {
+button:hover:not(:disabled),
+.button:hover:not(:disabled) {
 	margin-top: 0.1em;
 	margin-bottom: 0.3em;
 	box-shadow: 0 0.2em 0.1em rgba(0,0,0, 0.2);
 }
-button:hover:active {
+button:hover:active,
+.button:hover:active {
 	margin-top: 0.3em;
 	margin-bottom: 0.1em;
 	box-shadow: 0 0.02em 0.125em rgba(0,0,0, 0.4);
 	transition: all 0.05s;
 }
-button:disabled {
+button:disabled,
+.button:disabled {
 	cursor: initial;
 	background-color: silver;
 }

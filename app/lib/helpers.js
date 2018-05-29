@@ -11,6 +11,8 @@ module.exports = function (app, config) {
 		return moment(dateObj).format("YYYY-MM-DD HH:mm");
 	};
 
+	app.locals.getText = (obj, field, defaults) => obj[field] || defaults[field];
+
 	// Google Analytics
 	app.locals.getGoogleAnalyticsId = () => process.env.GOOGLE_ANALYTICS_ID || 'GOOGLE_ANALYTICS_ID not defined';
 
@@ -112,7 +114,7 @@ module.exports.sendResponse = function (err, results, callback) {
 	const errorCode = (results === undefined || results === null)
 		? 404
 		: (err ? 400 : 200);
-	//console.log('sendResponse', errorCode, err, results, typeof(callback));
+	//console.log('sendResponse', {errorCode, err, results}, typeof(callback));
 	if (errorCode !== 200) {
 		return this.status(errorCode).send({ error: err, code: errorCode });
 	}
@@ -212,22 +214,23 @@ module.exports.toSlug = function (str, removeInternationalChars) {
 	// Abort if not a proper string value
 	if (!str || typeof(str) !== 'string')
 		return str;
-	// For both: change space/underscore
+	// For both
 	var newStr = str.trim()
 		.toLowerCase()
 		.replace(/ /g, '-') // space to dash
 		.replace(/_/g, '-') // underscore to dash
 	// Remove ÅÄÖ etc?
 	if (removeInternationalChars) {
-		newStr = newStr.replace(/[^\w-]+/g, ''); // remove all other characters incl. ÅÄÖ
+		newStr = newStr.replace(/[åäæâãáà]/g,'a').replace(/[ëêéè]/g,'e').replace(/[öøôõóò]/g,'o').replace(/[üûúù]/g,'u'); // convert ÅÄÖÜ to Latin characters
+		newStr = newStr.replace(/[^\w-]+/g,''); // remove all other characters
 	}
 	else {
-		newStr = newStr.replace(/[\t.,?;:‘’“”"'`!@#$€%^&§°*<>™()\[\]{}_\+=\/\|\\]/g, ''); // remove invalid characters but keep ÅÄÖ etc
+		newStr = newStr.replace(/[\t.,?;:‘’“”"'`!@#$€%^&§°*<>()\[\]{}_\+=\/\|\\]/g,''); // remove invalid characters but keep ÅÄÖ etc
 	}
-	// For both: remove multiple dashes
-	newStr = newStr.replace(/---/g, '-') // fix for the ' - ' case
-		.replace(/--/g, '-') // fix for the '- ' case
-		.replace(/--/g, '-'); // fix for the '- ' case
+	// For both
+	newStr = newStr.replace(/---/g,'-') // fix for the ' - ' case
+		.replace(/--/g,'-') // fix for the '- ' case
+		.replace(/--/g,'-'); // fix for the '- ' case
 	return newStr;
 };
 

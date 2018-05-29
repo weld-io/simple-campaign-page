@@ -15,6 +15,20 @@ const Person = require('mongoose').model('Person');
 
 // Private functions
 
+const listPeople = (req, res, next) => {
+	let query = {};
+	if (!_.isEmpty(req.query.campaign)) {
+		query.campaign = req.query.campaign;
+	}
+	const sorting = { dateCreated: 1 };
+	Person.find(query).sort(sorting).exec((err, result) => {
+		req.crudify = req.crudify || {};
+		req.crudify.err = err;
+		req.crudify.result = result;
+		next();
+	});
+};
+
 // Public API
 
 module.exports = function (app, config) {
@@ -26,6 +40,9 @@ module.exports = function (app, config) {
 			beforeActions: [
 				{ middlewares: [authenticateListRequest] },
 			],
+			actions: {
+				list: listPeople,
+			},
 			endResponseInAction: false,
 			afterActions: [
 				{ middlewares: [helpers.sendRequestResponse] },

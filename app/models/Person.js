@@ -15,4 +15,6 @@ const Person = new Schema({
 	companyName: { type: String },
 });
 
+Person.index({ campaign: 1, email: 1 });
+
 mongoose.model('Person', Person);

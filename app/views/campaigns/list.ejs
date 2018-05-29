@@ -1,6 +1,8 @@
 <% include ../shared/pageHeader %>
 <title><%- title %></title>
-<% include ../shared/header %>
+<% include ../shared/headerIncludes %>
+<link rel="stylesheet" href="/weld-static-assets/css/weld-icons.css">
+<script type="text/javascript" src="/js/clientAdmin.js" async></script>
 </head>
 
 <body>
@@ -10,28 +12,38 @@
 
 <% if (isAuthenticated) { %>
 	<div class="actions"><button onclick="SimpleCampaignPage.addCampaign('<%= password %>')">Add campaign</button></div>
-<% } %>
 
-<table>
-	<thead>
-		<tr>
-			<th>Slug</th>
-			<th>Date</th>
-			<th>Title</th>
-		</tr>
-	</thead>
-	<tbody>
-<% for(var i=0; i < campaigns.length; i++) { %>
-		<tr>
-			<td>
-				<a href="<%= campaigns[i].slug %>" title="<%= campaigns[i].title %>"><%= campaigns[i].slug %></a>
-				/ <a href="<%= campaigns[i].slug %>/done" title="Done page">done</a>
-			</td>
-			<td><%= formatDate(campaigns[i].dateCreated) %></td>
-			<td><%= campaigns[i].title %></td>
-		</tr>
+	<table>
+		<thead>
+			<tr>
+				<th>Slug</th>
+				<th>Date</th>
+				<th>Title</th>
+				<th>Results</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+	<% for(var i=0; i < campaigns.length; i++) { %>
+			<tr>
+				<td>
+					<a href="<%= campaigns[i].slug %>" title="<%= campaigns[i].title %>"><%= campaigns[i].slug %></a>
+					/ <a href="<%= campaigns[i].slug %>/done" title="Done page">page2</a>
+				</td>
+				<td><%= formatDate(campaigns[i].dateCreated) %></td>
+				<td><%= campaigns[i].title %></td>
+				<td>
+					<a href="/api/people?campaign=<%= campaigns[i]._id %>&password=<%= password %>">People list</a>
+				</td>
+				<td>
+					<a onclick="SimpleCampaignPageAdmin.duplicateCampaign('<%= campaigns[i]._id %>', '<%= password %>')"><span class="clickable icon icon-duplicate"></span></a>
+					<a onclick="SimpleCampaignPageAdmin.deleteCampaign('<%= campaigns[i]._id %>', '<%= password %>')"><span class="clickable icon icon-delete"></span></a>
+				</td>
+			</tr>
+	<% } %>
+		</tbody>
+	</table>
+
 <% } %>
-	</tbody>
-</table>
 
 <% include ../shared/pageFooter %>

@@ -13,6 +13,7 @@ const async = require('async');
 const auth = require('../auth');
 const helpers = require('../../lib/helpers');
 const Campaign = mongoose.model('Campaign');
+const campaignData = require('../../models/Campaign');
 
 module.exports = {
 
@@ -49,6 +50,7 @@ module.exports = {
 			res.render('campaigns/show', {
 				title: 'Campaign',
 				campaign: campaign,
+				defaults: campaignData.defaults,
 				isAuthenticated: auth.isAuthenticated(req),
 				password: auth.getPassword(req),
 			});
@@ -63,6 +65,7 @@ module.exports = {
 			res.render('campaigns/showDone', {
 				title: 'Campaign - done',
 				campaign: campaign,
+				defaults: campaignData.defaults,
 				isAuthenticated: auth.isAuthenticated(req),
 				password: auth.getPassword(req),
 			});
