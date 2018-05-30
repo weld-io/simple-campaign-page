@@ -18,7 +18,7 @@
 	</section>
 	<section class="form">
 		<form onsubmit="return SimpleCampaignPage.addPerson('<%= campaign._id %>', '<%= campaign.slug %>');">
-			<input id="email" type="email" placeholder="<%= getText(campaign, 'emailPlaceholder', defaults) %>">
+			<input id="email" type="email" required placeholder="<%= getText(campaign, 'emailPlaceholder', defaults) %>">
 			<button id="submitButton" type="submit"><%= getText(campaign, 'ctaTitle', defaults) %></button>
 		</form>
 	</section>
