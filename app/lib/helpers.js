@@ -13,8 +13,9 @@ module.exports = function (app, config) {
 
 	app.locals.getText = (obj, field, defaults) => obj[field] || defaults[field];
 
-	// Google Analytics
+	// Analytics platforms
 	app.locals.getGoogleAnalyticsId = () => process.env.GOOGLE_ANALYTICS_ID || 'GOOGLE_ANALYTICS_ID not defined';
+	app.locals.getLinkedInAnalyticsId = () => process.env.LINKEDIN_ANALYTICS_ID || 'LINKEDIN_ANALYTICS_ID not defined';
 
 	app.locals.editButton = function (campaignId, fieldName, defaultValue, isAuthenticated, password, label='Edit') {
 		defaultValue = typeof(defaultValue) === 'object' ? `'[${defaultValue}]'` : `'${defaultValue}'`;

@@ -15,6 +15,7 @@ Made by the team at **Weld** ([www.weld.io](https://www.weld.io?utm_source=githu
 
 	export API_PASSWORD=xxx
 	export GOOGLE_ANALYTICS_ID=UA-xxx
+	export LINKEDIN_ANALYTICS_ID=xxx
 
 Start with:
 
@@ -82,5 +83,6 @@ Delete all campaigns:
 	heroku create MYAPPNAME
 	heroku addons:create mongolab
 	heroku config:set GOOGLE_ANALYTICS_ID=UA-xxx
+	heroku config:set LINKEDIN_ANALYTICS_ID=xxx
 	heroku config:set API_PASSWORD=xxx
 	git push heroku master
