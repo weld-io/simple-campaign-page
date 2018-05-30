@@ -26,6 +26,11 @@ var SimpleCampaignPage = SimpleCampaignPage || {};
 	};
 
 	SimpleCampaignPage.addPerson = function (campaignId, slug) {
+		if (document.getElementById('email').value.indexOf('@') === -1) {
+			alert('Please fill in a valid email address');
+			return false;
+		}
+
 		var jsonObj = {
 			campaign: campaignId,
 			email: document.getElementById('email').value,
