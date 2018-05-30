@@ -22,7 +22,7 @@
 			<button id="submitButton" type="submit"><%= getText(campaign, 'ctaTitle', defaults) %></button>
 		</form>
 	</section>
-	<section class="description"><%= campaign.description %></section>
-	<section class="fineprint"><%= getText(campaign, 'pageFooter', defaults) %></section>
+	<section class="description"><%- campaign.description %></section>
+	<section class="fineprint"><%- getText(campaign, 'pageFooter', defaults) %></section>
 
 <% include ../shared/pageFooter %>

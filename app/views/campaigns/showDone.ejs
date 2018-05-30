@@ -11,15 +11,13 @@
 		<h1><%= pageTitle %></h1>
 	</section>
 	<section class="done">
-		<p><%= getText(campaign, 'doneText', defaults) %></p>
+		<p><%- getText(campaign, 'doneText', defaults) %></p>
 <% if (campaign.ctaUrl) { %>
 		<p>
 			<a class="button" href="<%= campaign.ctaUrl %>" onclick="SimpleCampaignPage.trackGetContent(event, '<%= campaign.slug %>')"><%= getText(campaign, 'ctaTitle', defaults) %></a>
 		</p>
 <% } %>
 	</section>
-	<section class="fineprint">
-		This is a campaign by Weld (Weld Your Own App AB). For questions or if you want to be removed, email contact@weld.io.
-	</section>
+	<section class="fineprint"><%- getText(campaign, 'pageFooter', defaults) %></section>
 
 <% include ../shared/pageFooter %>
