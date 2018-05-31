@@ -9,7 +9,7 @@
 
 	<section
 		class="hero<%= campaign.darkText ? ' dark-text' : ' light-text' %>"
-		style="background-image: url(<%= campaign.imageUrl %>?auto=format&fit=max&w=1280&dpr=2&q=70);"
+		<%- campaign.imageUrl ? 'style="background-image: url(' + campaign.imageUrl + '?auto=format&fit=max&w=1280&dpr=2&q=70);"' : '' %>
 		>
 		<h1><%= pageTitle %></h1>
 	</section>

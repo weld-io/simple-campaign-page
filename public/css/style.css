@@ -124,6 +124,20 @@ section {
 	width: auto;
 }
 
+/* ----- Weld theme - remove later ----- */
+
+.hero {
+	/* gradient-blue: */
+	background-color: #89a3e7;
+	background-image: linear-gradient(135deg, #A06AFC 0%, #6CDFD2 100%);
+}
+
+button,
+.button {
+	background-color: #71c8db;
+}
+
+
 /* ----- Nice & Simple components ----- */
 
 /* Nice & simple: Links */

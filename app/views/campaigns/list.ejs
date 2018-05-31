@@ -34,7 +34,7 @@
 				<td><%= formatDate(campaigns[i].dateCreated) %></td>
 				<td
 					class="hero<%= campaigns[i].darkText ? ' dark-text' : ' light-text' %>"
-					style="background-image: url(<%= campaigns[i].imageUrl %>?auto=format&fit=max&w=500&dpr=2&q=70);"
+					<%- campaigns[i].imageUrl ? 'style="background-image: url(' + campaigns[i].imageUrl + '?auto=format&fit=max&w=1280&dpr=2&q=70);"' : '' %>
 					>
 					<h3><%- editLink(campaigns[i]._id, 'title', campaigns[i].title, isAuthenticated, password, campaigns[i].title) %></h3>
 					<p><%- editLink(campaigns[i]._id, 'tagline', campaigns[i].tagline, isAuthenticated, password, campaigns[i].tagline || '(add tagline)') %></p>
