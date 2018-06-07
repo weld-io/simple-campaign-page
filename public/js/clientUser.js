@@ -26,14 +26,15 @@ var SimpleCampaignPage = SimpleCampaignPage || {};
 	};
 
 	SimpleCampaignPage.addPerson = function (campaignId, slug) {
-		if (document.getElementById('email').value.indexOf('@') === -1) {
+		var email = document.getElementById('email').value;
+		if (email.length < 6 || email.split('@').length !== 2 || email.split('@')[1].indexOf('.') === -1) {
 			alert('Please fill in a valid email address');
 			return false;
 		}
 
 		var jsonObj = {
 			campaign: campaignId,
-			email: document.getElementById('email').value,
+			email: email,
 		};
 		SimpleCampaignPage.setElementDisabled('email', true);
 		SimpleCampaignPage.setElementDisabled('submitButton', true);
