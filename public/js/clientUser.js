@@ -32,9 +32,16 @@ var SimpleCampaignPage = SimpleCampaignPage || {};
 			return false;
 		}
 
+		var companyName = document.getElementById('companyName').value;
+		if (companyName.length < 3) {
+			alert('Please fill in a valid company name');
+			return false;
+		}
+
 		var jsonObj = {
 			campaign: campaignId,
 			email: email,
+			companyName: companyName,
 		};
 		SimpleCampaignPage.setElementDisabled('email', true);
 		SimpleCampaignPage.setElementDisabled('submitButton', true);

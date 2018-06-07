@@ -27,7 +27,8 @@ const campaignSchema = {
 };
 
 const valueDefaults = {
-	emailPlaceholder: 'Enter your work email',
+	emailPlaceholder: 'Your work email',
+	companyNamePlaceholder: 'Your company name',
 	ctaTitle: 'Learn more',
 	doneText: 'Thank you! We will be in touch.',
 	pageFooter: 'This is a campaign by Weld (Weld Your Own App AB). For questions or if you want to be removed, email contact@weld.io.',
