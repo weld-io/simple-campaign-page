@@ -12,9 +12,6 @@
 		<%- campaign.imageUrl ? 'style="background-image: url(' + campaign.imageUrl + '?auto=format&fit=max&w=1280&dpr=2&q=70);"' : '' %>
 		>
 		<h1><%= pageTitle %></h1>
-<% if (campaign.tagline) { %>
-		<p class="tagline"><%= campaign.tagline %></p>
-<% } %>
 	</section>
 	<section class="form">
 		<form onsubmit="return SimpleCampaignPage.addPerson('<%= campaign._id %>', '<%= campaign.slug %>');">
@@ -22,6 +19,9 @@
 			<button id="submitButton" type="submit"><%= getText(campaign, 'ctaTitle', defaults) %></button>
 		</form>
 	</section>
+<% if (campaign.tagline) { %>
+	<section class="tagline"><%= campaign.tagline %></section>
+<% } %>
 	<section class="description"><%- campaign.description %></section>
 	<section class="fineprint"><%- getText(campaign, 'pageFooter', defaults) %></section>
 

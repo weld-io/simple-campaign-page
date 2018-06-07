@@ -64,6 +64,8 @@ section {
 .tagline {
 	text-align: center;
 	font-size: 1.2em;
+	padding-bottom: 0.3em;
+	opacity: 0.6;
 }
 
 .form {
@@ -82,7 +84,7 @@ section {
 .description {
 	display: block;
 	text-align: center;
-	margin-bottom: 3em;
+	margin-bottom: 4em;
 }
 
 .fineprint {
