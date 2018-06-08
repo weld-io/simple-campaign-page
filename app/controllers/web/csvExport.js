@@ -13,7 +13,7 @@ const Person = require('mongoose').model('Person');
 
 const listPeople = function (req, res, next) {
 	const filter = { campaign: req.params.campaignId };
-	const sorting = { 'dateCreated': -1 };
+	const sorting = { 'dateCreated': 1 };
 	// Execute query
 	Person.find(filter).sort(sorting).exec(function (err, people) {
 		if (err)
