@@ -12,10 +12,13 @@ module.exports = function (app, config) {
 	app.use('/', router);
 
 	// Web
-	const webCampaignsController = require(config.root + '/app/controllers/web/campaigns');
+	const campaignsController = require(config.root + '/app/controllers/web/campaigns');
+	const csvExportController = require(config.root + '/app/controllers/web/csvExport');
 
-	router.get('/:slug/done', webCampaignsController.showDone);
-	router.get('/:slug', webCampaignsController.show);
-	router.get('/', webCampaignsController.list);
+	router.get('/export/people/:campaignId', csvExportController.listPeople);
+
+	router.get('/:slug/done', campaignsController.showDone);
+	router.get('/:slug', campaignsController.show);
+	router.get('/', campaignsController.list);
 
 };

@@ -8,7 +8,11 @@ module.exports = function (app, config) {
 
 	// To string. Months are zero-based
 	app.locals.formatDate = function (dateObj) {
-		return moment(dateObj).format('YYYY-MM-DD'); // HH:mm
+		return moment(dateObj).format('YYYY-MM-DD');
+	};
+
+	app.locals.formatDateTime = function (dateObj) {
+		return moment(dateObj).format('YYYY-MM-DD HH:mm');
 	};
 
 	app.locals.getText = (obj, field, defaults) => obj[field] || defaults[field];

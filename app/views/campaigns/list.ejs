@@ -48,7 +48,7 @@
 					<%- editButton(campaigns[i]._id, 'doneText', campaigns[i].doneText, isAuthenticated, password, '“Thank you”') %>
 				</td>
 				<td>
-					<a href="/api/people?campaign=<%= campaigns[i]._id %>&password=<%= password %>">List</a>
+					<a href="/export/people/<%= campaigns[i]._id %>?password=<%= password %>">List</a>
 				</td>
 				<td>
 					<a onclick="SimpleCampaignPageAdmin.duplicateCampaign('<%= campaigns[i]._id %>', '<%= password %>')"><span class="clickable icon icon-duplicate"></span></a>

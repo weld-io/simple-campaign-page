@@ -2,9 +2,9 @@
 <title>Error</title>
 <% include ../shared/headerIncludes %>
 
-<h1>Error</h1>
+<h1>Error (<%- error.status %>)</h1>
 <%- message %>
-<%- error.status %>
+
 <!-- <%- error.stack %> -->
   
 <% include ../shared/pageFooter %>
