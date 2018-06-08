@@ -11,7 +11,7 @@
 		class="hero<%= campaign.darkText ? ' dark-text' : ' light-text' %>"
 		<%- campaign.imageUrl ? 'style="background-image: url(' + campaign.imageUrl + '?auto=format&fit=max&w=1280&dpr=2&q=70);"' : '' %>
 		>
-		<h1><%= pageTitle %></h1>
+		<h1 id="title"><%= pageTitle %></h1>
 	</section>
 	<section class="form">
 		<form onsubmit="return SimpleCampaignPage.addPerson('<%= campaign._id %>', '<%= campaign.slug %>');">

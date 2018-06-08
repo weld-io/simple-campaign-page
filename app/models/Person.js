@@ -8,6 +8,7 @@ const helpers = require('../lib/helpers');
 const Person = new Schema({
 	dateCreated: { type: Date, default: Date.now },
 	campaign: { type: Schema.Types.ObjectId, ref: 'Campaign', required: true },
+	campaignTitle: { type: String },
 	email: { type: String, required: true },
 	phone: { type: String },
 	firstName: { type: String },
