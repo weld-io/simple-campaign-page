@@ -12,10 +12,14 @@ const Person = require('mongoose').model('Person');
 // Private functions
 
 const listPeople = function (req, res, next) {
-	const filter = { campaign: req.params.campaignId };
+	let filter = {};
+	if (req.params.campaignId) filter.campaign = req.params.campaignId;
+	if (req.query.after) filter.dateCreated = { $gte: new Date(req.query.after) };
+	console.log(`filter:`, filter);
+	// Sorting
 	const sorting = { 'dateCreated': 1 };
 	// Execute query
-	Person.find(filter).sort(sorting).exec(function (err, people) {
+	Person.find(filter).limit(200).sort(sorting).populate('campaign').exec(function (err, people) {
 		if (err)
 			return next(err);
 		if (!auth.isAuthenticated(req))

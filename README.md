@@ -35,14 +35,22 @@ Server will default to **http://localhost:3041**
 
 ## Entities
 
-* **Campaign**: link to external campaign.
-* **Ad**: an ad banner to show.
+* **Campaign**: ad campaign.
+* **Person**: a person that signs up.
 
 
 ## Todo
 
-- [ ] Set responsive image with window.innerWidth / window.devicePixelRatio
-- [ ] YouTube video support
+
+## CSV export
+
+All campaigns:
+
+	http://localhost:3041/export/people?password=[API_PASSWORD]&after=2018-06-07
+
+One campaign:
+
+	http://localhost:3041/export/people/5b0d04a2ad36c2a694ca987e?password=[API_PASSWORD]
 
 
 ## REST API

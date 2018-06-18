@@ -1,3 +1,3 @@
 <% for(var i=0; i < people.length; i++) {
-%><%= people[i].email %>,<%= people[i].companyName %>,<%= people[i].campaignTitle %>,<%= formatDateTime(people[i].dateCreated) %>
+%><%= people[i].email %>,<%= people[i].companyName %>,<%= people[i].campaignTitle %>,<%= people[i].campaign ? people[i].campaign.slug : '' %>,<%= formatDateTime(people[i].dateCreated) %>
 <% } %>
