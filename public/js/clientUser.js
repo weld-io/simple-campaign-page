@@ -29,7 +29,7 @@ var SimpleCampaignPage = SimpleCampaignPage || {};
 
 		var campaignTitle = document.getElementById('title').innerHTML;
 
-		var email = document.getElementById('email').value;
+		var email = document.getElementById('email').value.toLowerCase();
 		if (email.length < 6 || email.split('@').length !== 2 || email.split('@')[1].indexOf('.') === -1) {
 			alert('Please fill in a valid email address');
 			return false;
