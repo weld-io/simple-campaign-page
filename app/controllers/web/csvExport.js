@@ -12,10 +12,9 @@ const Person = require('mongoose').model('Person');
 // Private functions
 
 const listPeople = function (req, res, next) {
-	let filter = {};
+	const filter = {};
 	if (req.params.campaignId) filter.campaign = req.params.campaignId;
 	if (req.query.after) filter.dateCreated = { $gte: new Date(req.query.after) };
-	console.log(`filter:`, filter);
 	// Sorting
 	const sorting = { 'dateCreated': 1 };
 	// Execute query
