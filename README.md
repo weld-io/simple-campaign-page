@@ -47,6 +47,10 @@ Server will default to **http://localhost:3041**
 All campaigns:
 
 	http://localhost:3041/export/people?password=[API_PASSWORD]&after=2018-06-07
+	http://localhost:3041/export/people?password=[API_PASSWORD]&days=30
+
+* `after=` a date
+* `days=` the last n days
 
 One campaign:
 

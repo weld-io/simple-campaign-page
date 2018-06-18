@@ -16,12 +16,14 @@ const Person = require('mongoose').model('Person');
 // Private functions
 
 const listPeople = (req, res, next) => {
-	let query = {};
-	if (!_.isEmpty(req.query.campaign)) {
-		query.campaign = req.query.campaign;
-	}
+	// Search filter
+	const filter = {};
+	if (req.query.campaign) filter.campaign = req.query.campaign;
+	if (req.query.after) filter.dateCreated = { $gte: new Date(req.query.after) };
+	if (req.query.days) filter.dateCreated = { $gte: new Date((new Date()).getTime() + req.query.days*-24*60*60*1000) };
+	// Sorting
 	const sorting = { dateCreated: 1 };
-	Person.find(query).sort(sorting).exec((err, result) => {
+	Person.find(filter).sort(sorting).exec((err, result) => {
 		req.crudify = req.crudify || {};
 		req.crudify.err = err;
 		req.crudify.result = result;
