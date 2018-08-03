@@ -104,20 +104,28 @@ section.video {
 .description {
 	display: block;
 	text-align: center;
-	margin-bottom: 4em;
+	margin-bottom: 1em;
 }
 
 .fineprint {
 	font-size: 0.6em;
 	background-color: gray;
 	color: white;
-	position: fixed;
-	bottom: 0;
 }
-
 .fineprint a {
 	color: inherit;
 }
+
+/* Fixed bottom */
+
+/*.description {
+	margin-bottom: 4em;
+}
+
+.fineprint {
+	position: fixed;
+	bottom: 0;
+}*/
 
 /* ----- Responsive ----- */
 

@@ -13,24 +13,21 @@
 		>
 		<h1 id="title"><%= pageTitle %></h1>
 	</section>
-	<section class="form">
-		<form onsubmit="return SimpleCampaignPage.addPerson('<%= campaign._id %>', '<%= campaign.slug %>');">
-			<input id="email" type="email" required placeholder="<%= getText(campaign, 'emailPlaceholder', defaults) %>">
-			<input id="companyName" type="text" required placeholder="<%= getText(campaign, 'companyNamePlaceholder', defaults) %>">
-			<button id="submitButton" type="submit"><%= getText(campaign, 'ctaTitle', defaults) %></button>
-		</form>
-	</section>
+<% include signupForm %>
 <% if (campaign.videoUrl) { %>
 	<section class="video">
 		<div class="video-wrapper">
 			<iframe width="560" height="349" src="https://www.youtube.com/embed/<%= getVideoID(campaign.videoUrl) %>?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
 		</div>
-	</section>
-<% } %>
+	</section><% 
+} %>
 <% if (campaign.tagline) { %>
-	<section class="tagline"><%= campaign.tagline %></section>
-<% } %>
+	<section class="tagline"><%= campaign.tagline %></section><% 
+} %>
 	<section class="description"><%- campaign.description %></section>
+<% if (campaign.videoUrl) { %>
+<% include signupForm %>
+<% } %>
 	<section class="fineprint"><%- getText(campaign, 'pageFooter', defaults) %></section>
 
 </main>
