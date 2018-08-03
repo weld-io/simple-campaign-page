@@ -17,6 +17,7 @@ const campaignSchema = {
 	doneText: { type: String },
 	// Texts: secondary
 	emailPlaceholder: { type: String },
+	companyNamePlaceholder: { type: String },
 	pageFooter: { type: String },
 	// Links
 	ctaUrl: { type: String }, // e.g. download something
