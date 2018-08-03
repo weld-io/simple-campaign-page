@@ -31,6 +31,30 @@ module.exports = function (app, config) {
 		return isAuthenticated ? `<a class="edit-link" onclick="SimpleCampaignPageAdmin.editDataField('campaigns', '${campaignId}', '${fieldName}', ${defaultValue}, '${password}')">${label}</a>` : '';
 	};
 
+	// https://www.youtube.com/watch?v=LowVhCfLm68
+	// http://youtu.be/Cuebj4kVOy4
+	// http://vimeo.com/109377627
+	// http://vimeo.com/channels/weldtutorials/105655782
+	app.locals.getVideoID = function (videoURL) {
+		var videoId = null;
+		if (videoURL.indexOf('youtube.com/watch') !== -1) {
+			videoId = videoURL.substring(videoURL.indexOf('v=') + 2, videoURL.length);
+			if (videoId.indexOf('&') !== -1) {
+				videoId = videoId.substring(0, videoId.indexOf('&'));
+			}
+		}
+		else if (videoURL.indexOf('youtu.be/') !== -1) {
+			videoId = videoURL.substring(videoURL.indexOf('be/') + 3, videoURL.length);
+			if (videoId.indexOf('?') !== -1) {
+				videoId = videoId.substring(0, videoId.indexOf('?'));
+			}
+		}
+		else if (videoURL.indexOf('vimeo.com') !== -1) {
+			videoId = videoURL.substring(videoURL.lastIndexOf('/') + 1, videoURL.length);
+		}
+		return videoId;
+	};
+
 };
 
 // Get types for all properties for the arguments object

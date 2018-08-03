@@ -20,6 +20,13 @@
 			<button id="submitButton" type="submit"><%= getText(campaign, 'ctaTitle', defaults) %></button>
 		</form>
 	</section>
+<% if (campaign.videoUrl) { %>
+	<section class="video">
+		<div class="video-wrapper">
+			<iframe width="560" height="349" src="https://www.youtube.com/embed/<%= getVideoID(campaign.videoUrl) %>?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
+		</div>
+	</section>
+<% } %>
 <% if (campaign.tagline) { %>
 	<section class="tagline"><%= campaign.tagline %></section>
 <% } %>

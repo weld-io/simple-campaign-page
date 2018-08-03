@@ -68,6 +68,26 @@ section {
 	opacity: 0.6;
 }
 
+section.video {
+	display: block;
+	padding: 0;
+}
+
+/* Fluid video https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php */
+.video-wrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+.video-wrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
 .form {
 	flex-direction: row;
 	justify-content: center;
