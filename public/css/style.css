@@ -43,6 +43,7 @@ section {
 .hero {
 	justify-content: space-around;
 	background-size: cover;
+	background-position: center;
 	height: 50%;
 	background-color: #71c8db;
 }
