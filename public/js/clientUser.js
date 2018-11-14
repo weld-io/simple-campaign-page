@@ -27,8 +27,6 @@ var SimpleCampaignPage = SimpleCampaignPage || {};
 
 	SimpleCampaignPage.addPerson = function (campaignId, slug) {
 
-		var campaignTitle = document.getElementById('title').innerHTML;
-
 		var email = document.getElementById('email').value.toLowerCase();
 		if (email.length < 6 || email.split('@').length !== 2 || email.split('@')[1].indexOf('.') === -1) {
 			alert('Please fill in a valid email address');
@@ -41,18 +39,21 @@ var SimpleCampaignPage = SimpleCampaignPage || {};
 			return false;
 		}
 
+		// Validation complete, let's go!
+		SimpleCampaignPage.setElementDisabled('email', true);
+		SimpleCampaignPage.setElementDisabled('submitButton', true);
+
+		var campaignTitle = document.getElementById('title').innerHTML;
+
 		var jsonObj = {
 			campaign: campaignId,
 			campaignTitle: campaignTitle,
 			email: email,
 			companyName: companyName,
 		};
-		SimpleCampaignPage.setElementDisabled('email', true);
-		SimpleCampaignPage.setElementDisabled('submitButton', true);
+
+		// Post to server
 		SimpleCampaignPage.apiRequest('post', 'people', undefined, jsonObj, undefined, function(result) {
-			console.log(`result:`, result);
-			SimpleCampaignPage.setElementDisabled('email', false);
-			SimpleCampaignPage.setElementDisabled('submitButton', false);
 			SimpleCampaignPage.trackSignup(slug, function () {
 				location.href = location.href.replace(location.pathname, location.pathname + '/done');
 			});

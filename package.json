@@ -1,6 +1,6 @@
 {
 	"name": "simple-campaign-page",
-	"version": "0.3.0",
+	"version": "0.3.2",
 	"description": "Simple Campaign Page makes it easy to set up landing pages with very little configuration.",
 	"author": "Tom Söderlund",
 	"main": "app/server.js",
