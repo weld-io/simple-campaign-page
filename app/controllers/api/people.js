@@ -31,6 +31,33 @@ const listPeople = (req, res, next) => {
 	});
 };
 
+const createPerson = function (req, res, next) {
+	const newPerson = req.body;
+	Person.findOrCreate({
+			email: newPerson.email,
+			campaign: newPerson.campaign
+		},
+		newPerson,
+		function (err, result, wasCreated) {
+
+			const doResult = (err, result) => {
+				req.crudify = { err, result, person: result };
+				next();
+			}
+
+			if (wasCreated) {
+				// New person
+				doResult(err, result)
+			}
+			else {
+				// Update existing person
+				result.campaign = newPerson.campaign;
+				result.save(doResult);
+			}
+
+	});
+}
+
 // Public API
 
 module.exports = function (app, config) {
@@ -44,6 +71,7 @@ module.exports = function (app, config) {
 			],
 			actions: {
 				list: listPeople,
+				create: createPerson
 			},
 			endResponseInAction: false,
 			afterActions: [
