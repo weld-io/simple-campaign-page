@@ -1,6 +1,6 @@
-const config = require('./lib/config');
-const app = require('./app');
+const config = require('./lib/config')
+const app = require('./app')
 
-const portNumber = process.env.PORT || config.port;
-console.log('simple-campaign-page running on http://localhost:' + portNumber);
-app.listen(portNumber);
+const portNumber = process.env.PORT || config.port
+console.log('simple-campaign-page running on http://localhost:' + portNumber)
+app.listen(portNumber)
