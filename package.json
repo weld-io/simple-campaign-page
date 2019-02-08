@@ -7,7 +7,9 @@
 	"scripts": {
 		"dev": "nodemon app/server.js",
 		"start": "node app/server.js",
-		"test": "node test/app.js"
+		"test": "node test/app.js",
+		"lint": "standard",
+		"fix": "standard --fix"
 	},
 	"license": "MIT",
 	"dependencies": {
@@ -27,6 +29,7 @@
 	},
 	"devDependencies": {
 		"nodemon": "^1.11.0",
+		"standard": "^12.0.1",
 		"supertest": "^3.0.0",
 		"tape": "^4.6.3"
 	}
