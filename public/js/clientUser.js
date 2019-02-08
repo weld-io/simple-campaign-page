@@ -27,13 +27,13 @@ var SimpleCampaignPage = SimpleCampaignPage || {}
   SimpleCampaignPage.addPerson = function (campaignId, slug) {
     var email = document.getElementById('email').value.toLowerCase()
     if (email.length < 6 || email.split('@').length !== 2 || email.split('@')[1].indexOf('.') === -1) {
-      alert('Please fill in a valid email address')
+      window.alert('Please fill in a valid email address')
       return false
     }
 
     var companyName = document.getElementById('companyName').value
     if (companyName.length < 3) {
-      alert('Please fill in a valid company name')
+      window.alert('Please fill in a valid company name')
       return false
     }
 

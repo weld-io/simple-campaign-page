@@ -18,11 +18,8 @@
     ],
     "globals": [
       "$",
-      "alert",
-      "confirm",
       "gtag",
       "location",
-      "prompt",
       "SimpleCampaignPage"
     ]
   },
