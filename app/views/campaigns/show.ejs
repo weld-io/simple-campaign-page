@@ -13,13 +13,17 @@
 		>
 		<h1 id="title"><%= pageTitle %></h1>
 	</section>
+
 <% if (!campaign.videoUrl) { %>
-<% include signupForm %>
+	<% include signupForm %>
 <% } %>
+
 <% if (campaign.tagline) { %>
 	<section class="tagline"><%= campaign.tagline %></section><% 
 } %>
+
 	<section class="description"><%- campaign.description %></section>
+
 <% if (campaign.videoUrl) { %>
 <% include signupForm %>
 	<section class="video">
@@ -27,8 +31,9 @@
 			<iframe width="560" height="349" src="https://www.youtube.com/embed/<%= getVideoID(campaign.videoUrl) %>?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
 		</div>
 	</section>
-<% include signupForm %>
+	<% include signupForm %>
 <% } %>
+
 	<section class="fineprint"><%- getText(campaign, 'pageFooter', defaults) %></section>
 
 </main>
