@@ -21,6 +21,7 @@
 } %>
 	<section class="description"><%- campaign.description %></section>
 <% if (campaign.videoUrl) { %>
+<% include signupForm %>
 	<section class="video">
 		<div class="video-wrapper">
 			<iframe width="560" height="349" src="https://www.youtube.com/embed/<%= getVideoID(campaign.videoUrl) %>?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
