@@ -11,6 +11,7 @@ const mongoose = require('mongoose')
 const auth = require('../auth')
 const Campaign = mongoose.model('Campaign')
 const campaignData = require('../../models/Campaign')
+const config = require('../../lib/config')
 
 module.exports = {
 
@@ -49,7 +50,8 @@ module.exports = {
         campaign: campaign,
         defaults: campaignData.defaults,
         isAuthenticated: auth.isAuthenticated(req),
-        password: auth.getPassword(req)
+        password: auth.getPassword(req),
+        triggerbeeId: config.triggerbeeId
       })
     })
   },
@@ -64,7 +66,8 @@ module.exports = {
         campaign: campaign,
         defaults: campaignData.defaults,
         isAuthenticated: auth.isAuthenticated(req),
-        password: auth.getPassword(req)
+        password: auth.getPassword(req),
+        triggerbeeId: config.triggerbeeId
       })
     })
   }

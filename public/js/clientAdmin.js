@@ -3,7 +3,6 @@
 var SimpleCampaignPageAdmin = SimpleCampaignPageAdmin || {}
 
 ;(function (SimpleCampaignPageAdmin) {
-
   const cleanString = function (str) { return str.replace(/\'/g, '’').replace(/\"/g, '”') }
 
   SimpleCampaignPageAdmin.editDataField = function (collectionName, recordId, fieldName, defaultValue, password) {
