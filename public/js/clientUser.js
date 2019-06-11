@@ -55,6 +55,7 @@ var SimpleCampaignPage = SimpleCampaignPage || {}
       SimpleCampaignPage.trackSignup(slug, function () {
         location.href = location.href.replace(location.pathname, location.pathname + '/done')
       })
+      SimpleCampaignPage.createTriggerbeeContact(email, companyName, campaignTitle)
     })
     return false
   }
@@ -75,5 +76,20 @@ var SimpleCampaignPage = SimpleCampaignPage || {}
         location.href = event.target.getAttribute('href')
       }
     })
+  }
+
+  SimpleCampaignPage.createTriggerbeeContact = function (email, company, goal) {
+    try {
+      if (window.mtr_custom) {
+        var tbContact = window.mtr_custom || {}
+        tbContact.session = tbContact.session || {}
+        if (company) tbContact.session.organization = company
+        if (email) tbContact.session.email = email
+        window.mtr_custom = tbContact
+        if (window.mtr && goal) window.mtr.goal(goal)
+      }
+    } catch (err) {
+      console.warn('Warning:' + err.message || err)
+    }
   }
 }(SimpleCampaignPage))

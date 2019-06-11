@@ -11,7 +11,7 @@ var config = {
       name: 'simple-campaign-page'
     },
     port: 3041,
-    triggerbeeId: process.env.TRIGGERBEE_ID
+    triggerbeeId: process.env.TRIGGERBEE_ID || 0
   },
 
   development: {
