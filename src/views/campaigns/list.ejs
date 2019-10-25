@@ -31,6 +31,7 @@
 					<a href="<%= campaigns[i].slug %>" title="<%= campaigns[i].title %>"><%= campaigns[i].title %></a> (preview)
 					/ <a href="<%= campaigns[i].slug %>/done" title="Thank you page">page 2</a>
 					<br/><%- editButton(campaigns[i]._id, 'slug', campaigns[i].slug, isAuthenticated, password, 'Change page link') %>
+					<br/><a class="small" onClick="SimpleCampaignPageAdmin.previewCampaign('<%= campaigns[i].slug %>', '<%= campaigns[i].title %>')">Preview with custom title</a>
 				</td>
 				<td><%= formatDate(campaigns[i].dateCreated) %></td>
 				<td class="hero<%= campaigns[i].darkText ? ' dark-text' : ' light-text' %>"

@@ -25,7 +25,7 @@ var SimpleCampaignPageAdmin = SimpleCampaignPageAdmin || {}
         newData[fieldName] = null
       }
       SimpleCampaignPage.apiRequest('put', collectionName, recordId, newData, password, function (result) {
-        location.reload()
+        window.location.reload()
       })
     }
   }
@@ -34,25 +34,32 @@ var SimpleCampaignPageAdmin = SimpleCampaignPageAdmin || {}
     var title = cleanString(window.prompt('Campaign Title/Headline'))
     var jsonObj = { title: title }
     SimpleCampaignPage.apiRequest('post', 'campaigns', undefined, jsonObj, password, function (result) {
-      location.reload()
+      window.location.reload()
     })
   }
 
   SimpleCampaignPageAdmin.duplicateCampaign = function (campaignId, password) {
     SimpleCampaignPage.apiRequest('post', 'campaigns/duplicate', undefined, { _id: campaignId }, password, function (result) {
-      location.reload()
+      window.location.reload()
     })
   }
 
   SimpleCampaignPageAdmin.deleteCampaign = function (campaignId, password) {
-    console.log(`delete: "${campaignId}"`)
     if (window.confirm('Delete this campaign and all users belonging to it?')) {
       SimpleCampaignPage.apiRequest('delete', 'campaigns', campaignId, undefined, password, function (result) {
-        location.reload()
+        window.location.reload()
       },
       function (err) {
-        location.reload()
+        window.location.reload()
       })
+    }
+  }
+
+  SimpleCampaignPageAdmin.previewCampaign = function (slug, title, event) {
+    var newTitle = window.prompt('What should be the custom title/headline?', title)
+    if (newTitle) {
+      var newUrl = window.location.origin + '/' + slug + '?title=' + newTitle.replace(/ /g, '+')
+      window.location.href = newUrl
     }
   }
 }(SimpleCampaignPageAdmin))

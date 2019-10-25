@@ -181,6 +181,7 @@ a {
 	text-decoration: none;
 	border-bottom: 1px dotted rgba(30, 143, 255, 0); /* dodgerblue transparent */
 	transition: all 0.2s;
+	cursor: pointer;
 }
 a:hover:not(.button) {
 	opacity: 0.8;

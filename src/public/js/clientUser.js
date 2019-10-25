@@ -54,7 +54,7 @@ var SimpleCampaignPage = SimpleCampaignPage || {}
     // Post to server
     SimpleCampaignPage.apiRequest('post', 'people', undefined, jsonObj, undefined, function (result) {
       SimpleCampaignPage.trackSignup(slug, function () {
-        window.location.href = window.location.href.replace(location.pathname, location.pathname + '/done')
+        window.location.href = window.location.href.replace(window.location.pathname, location.pathname + '/done')
       })
       SimpleCampaignPage.createTriggerbeeContact(email, jsonObj.companyName, campaignTitle)
     })
