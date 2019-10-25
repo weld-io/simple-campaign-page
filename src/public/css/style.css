@@ -238,11 +238,10 @@ button,
 }
 button:focus:not(:disabled),
 .button:focus:not(:disabled) {
-	opacity: 0.8;
+	border: 2px solid #666666;
 }
 button:hover:not(:disabled),
 .button:hover:not(:disabled) {
-	opacity: 0.8;
 	top: -0.1em;
 	box-shadow: 0 0.2em 0.1em rgba(0,0,0, 0.2);
 }
