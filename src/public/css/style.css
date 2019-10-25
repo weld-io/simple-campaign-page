@@ -20,6 +20,10 @@ main {
 	height: 100%;
 }
 
+main.padded {
+	padding: 1em;
+}
+
 .small {
 	font-size: 0.7em;
 }

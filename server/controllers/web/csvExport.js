@@ -33,10 +33,22 @@ const listPeople = function (req, res, next) {
   })
 }
 
+const showPerson = (req, res, next) => {
+  Person.findById(req.params.id).populate('campaign').exec((err, person) => {
+    if (err) { return next(err) }
+    res.render('people/show', {
+      pageTitle: person.email,
+      pageDescription: 'Campaign signup',
+      person
+    })
+  })
+}
+
 // Public API
 
 module.exports = {
 
-  listPeople
+  listPeople,
+  showPerson
 
 }

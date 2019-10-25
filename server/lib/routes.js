@@ -12,10 +12,12 @@ module.exports = function (app, config) {
 
   // Web
   const campaignsController = require(config.root + '/server/controllers/web/campaigns')
-  const csvExportController = require(config.root + '/server/controllers/web/csvExport')
+  const peopleController = require(config.root + '/server/controllers/web/csvExport')
 
-  router.get('/export/people/:campaignId', csvExportController.listPeople)
-  router.get('/export/people', csvExportController.listPeople)
+  router.get('/people/:id', peopleController.showPerson)
+
+  router.get('/export/people/:campaignId', peopleController.listPeople)
+  router.get('/export/people', peopleController.listPeople)
 
   router.get('/:slug/done', campaignsController.showDone)
   router.get('/:slug', campaignsController.show)

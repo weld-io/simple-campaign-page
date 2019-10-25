@@ -7,5 +7,5 @@
 <meta name="twitter:site" content="@Weld_io">
 <meta name="twitter:creator" content="@Weld_io">
 <meta name="twitter:card" content="summary">
-<meta property="og:image" content="<%- campaign.imageUrl %>">
-<meta name="twitter:image" content="<%- campaign.imageUrl %>">
+<meta property="og:image" content="<%- locals.campaign ? campaign.imageUrl : '' %>">
+<meta name="twitter:image" content="<%- locals.campaign ? campaign.imageUrl : '' %>">
