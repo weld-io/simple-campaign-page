@@ -28,13 +28,12 @@
 	<% for (var i=0; i < campaigns.length; i++) { %>
 			<tr>
 				<td>
-					<a href="<%= campaigns[i].slug %>" title="<%= campaigns[i].title %>"><%= campaigns[i].slug %></a>
-					/ <a href="<%= campaigns[i].slug %>/done" title="Done page">page2</a>
-					<%- editButton(campaigns[i]._id, 'slug', campaigns[i].slug, isAuthenticated, password, 'Slug') %>
+					<a href="<%= campaigns[i].slug %>" title="<%= campaigns[i].title %>">“<%= campaigns[i].title %>”</a> (preview)
+					/ <a href="<%= campaigns[i].slug %>/done" title="Thank you page">page 2</a>
+					<br/><%- editButton(campaigns[i]._id, 'slug', campaigns[i].slug, isAuthenticated, password, 'Change slug') %>
 				</td>
 				<td><%= formatDate(campaigns[i].dateCreated) %></td>
-				<td
-					class="hero<%= campaigns[i].darkText ? ' dark-text' : ' light-text' %>"
+				<td class="hero<%= campaigns[i].darkText ? ' dark-text' : ' light-text' %>"
 					<%- campaigns[i].imageUrl ? 'style="background-image: url(' + campaigns[i].imageUrl + '?auto=format&fit=max&w=1280&dpr=2&q=70);"' : '' %>
 					>
 					<h3><%- editLink(campaigns[i]._id, 'title', campaigns[i].title, isAuthenticated, password, campaigns[i].title) %></h3>
