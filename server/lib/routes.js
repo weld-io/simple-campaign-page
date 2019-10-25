@@ -12,7 +12,7 @@ module.exports = function (app, config) {
 
   // Web
   const campaignsController = require(config.root + '/server/controllers/web/campaigns')
-  const peopleController = require(config.root + '/server/controllers/web/csvExport')
+  const peopleController = require(config.root + '/server/controllers/web/people')
 
   router.get('/people/:id', peopleController.showPerson)
 
