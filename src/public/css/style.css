@@ -212,38 +212,43 @@ label input {
 	flex: 1;
 }
 
-
-/* Nice & simple: Button - http://codepen.io/tomsoderlund/pen/qqyzqp */
+/* #NiceAndSimple: Button - http://codepen.io/tomsoderlund/pen/qqyzqp */
 button,
 .button {
+	position: relative;
 	background-color: #71c8db;
 	color: white;
 	border-radius: 0.2em;
 	border: none;
 	box-shadow: 0 0.125em 0.125em rgba(0,0,0, 0.3);
 	box-sizing: border-box;
+	display: inline-block;
 	cursor: pointer;
+	user-select: none;
 	font-family: inherit;
 	font-size: inherit;
+	line-height: normal;
 	font-weight: bold;
 	min-width: 15em;
+	text-align: center;
+	outline: none;
 	padding: 0.6em;
 	margin: 0.2em;
-	transition: all 0.2s;
-	outline: none;
+	transition: all 0.1s;
 }
 button:focus:not(:disabled),
-.button:focus:not(:disabled),
+.button:focus:not(:disabled) {
+	opacity: 0.8;
+}
 button:hover:not(:disabled),
 .button:hover:not(:disabled) {
-	margin-top: 0.1em;
-	margin-bottom: 0.3em;
+	opacity: 0.8;
+	top: -0.1em;
 	box-shadow: 0 0.2em 0.1em rgba(0,0,0, 0.2);
 }
 button:hover:active,
 .button:hover:active {
-	margin-top: 0.3em;
-	margin-bottom: 0.1em;
+	top: 0.1em;
 	box-shadow: 0 0.02em 0.125em rgba(0,0,0, 0.4);
 	transition: all 0.05s;
 }
@@ -252,8 +257,11 @@ button:disabled,
 	cursor: initial;
 	background-color: silver;
 }
+a.button {
+	text-decoration: none;
+}
 
-/* Nice & simple: Input and Dropdown Menu - http://codepen.io/tomsoderlund/pen/GNBbWz */
+/* #NiceAndSimple: Input and Dropdown Menu - http://codepen.io/tomsoderlund/pen/GNBbWz */
 input,
 textarea,
 select {
@@ -271,22 +279,30 @@ select {
 	padding: 0.6em;
 	margin: 0.2em;
 }
-input:hover:not(:disabled),
-textarea:hover:not(:disabled),
-select:hover:not(:disabled) {
+input:hover:not(:disabled):not(:focus),
+.input-like:hover:not(:disabled):not(:focus),
+textarea:hover:not(:disabled):not(:focus),
+select:hover:not(:disabled):not(:focus) {
 	border-color: silver;
 }
 input:focus,
+.input-like:focus,
 textarea:focus,
 select:focus {
 	border-color: darkgray;
 }
+input:read-only,
+textarea:read-only {
+	color: darkgray;
+}
 input:disabled,
+.input-like:disabled,
 textarea:disabled,
 select:disabled {
 	background-color: whitesmoke;
 }
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
 	color: lightgray;
 }
 
