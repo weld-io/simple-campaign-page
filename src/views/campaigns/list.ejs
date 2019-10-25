@@ -12,14 +12,14 @@
 <h1>Campaigns</h1>
 
 <% if (isAuthenticated) { %>
-	<div class="actions"><button onclick="SimpleCampaignPageAdmin.addCampaign('<%= password %>')">Add campaign</button></div>
+	<div class="actions"><button onclick="SimpleCampaignPageAdmin.addCampaign('<%= password %>')">Create new campaign</button></div>
 
 	<table>
 		<thead>
 			<tr>
-				<th>Slug</th>
+				<th>Campaign</th>
 				<th>Date</th>
-				<th>Title</th>
+				<th>Edit campaign</th>
 				<th>Results</th>
 				<th>Actions</th>
 			</tr>
@@ -50,7 +50,7 @@
 					<%- editButton(campaigns[i]._id, 'fieldsToShow', campaigns[i].fieldsToShow || ['email,companyName'], isAuthenticated, password, 'Input fields') %>
 				</td>
 				<td>
-					<a href="/export/people/<%= campaigns[i]._id %>?password=<%= password %>">List</a>
+					<a href="/export/people/<%= campaigns[i]._id %>?password=<%= password %>">Signups</a>
 				</td>
 				<td>
 					<a onclick="SimpleCampaignPageAdmin.duplicateCampaign('<%= campaigns[i]._id %>', '<%= password %>')"><span class="clickable icon icon-duplicate"></span></a>
