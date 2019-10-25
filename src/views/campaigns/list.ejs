@@ -28,7 +28,7 @@
 	<% for (var i=0; i < campaigns.length; i++) { %>
 			<tr>
 				<td>
-					<a href="<%= campaigns[i].slug %>" title="<%= campaigns[i].title %>">“<%= campaigns[i].title %>”</a> (preview)
+					<a href="<%= campaigns[i].slug %>" title="<%= campaigns[i].title %>"><%= campaigns[i].title %></a> (preview)
 					/ <a href="<%= campaigns[i].slug %>/done" title="Thank you page">page 2</a>
 					<br/><%- editButton(campaigns[i]._id, 'slug', campaigns[i].slug, isAuthenticated, password, 'Change slug') %>
 				</td>
