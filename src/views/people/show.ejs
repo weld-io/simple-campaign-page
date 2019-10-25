@@ -9,8 +9,10 @@
   <p><strong>Email:</strong> <%- person.email %></p>
   <p><strong>Phone:</strong> <%- person.phone %></p>
   <p><strong>Company:</strong> <%- person.companyName %></p>
+  <p><strong>Company size:</strong> <%- person.companySize %></p>
   <p><strong>First name:</strong> <%- person.firstName %></p>
   <p><strong>Last name:</strong> <%- person.lastName %></p>
+  <p><strong>Comments:</strong> <%- person.comments %></p>
   <p><strong>Date created:</strong> <%- formatDateTime(person.dateCreated) %></p>
   <p><strong>Campaign page:</strong> <a target="_blank" href="/<%= person.campaign ? person.campaign.slug : '' %>"><%= person.campaign ? person.campaign.slug : '' %></a></p>
   <p><strong>Campaign Title:</strong> <%- person.campaignTitle %></p>

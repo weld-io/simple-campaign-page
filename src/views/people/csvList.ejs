@@ -1,5 +1,5 @@
 <% if (people.length === 0) {
 %>List is empty<% }
-%><% for(var i=0; i < people.length; i++) {
+%><% for (var i=0; i < people.length; i++) {
 %><%= people[i].email %>,<%= people[i].companyName %>,<%= people[i].campaignTitle %>,<%= people[i].campaign ? people[i].campaign.slug : '' %>,<%= formatDateTime(people[i].dateCreated) %>
 <% } %>

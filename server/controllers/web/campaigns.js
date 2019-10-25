@@ -40,16 +40,18 @@ module.exports = {
   },
 
   show: function (req, res, next) {
-    console.log(`req.query:`, req.query)
     Campaign.findOne({ slug: req.params.slug }).exec(function (err, campaign) {
       if (err || campaign === null) {
         return next(err)
       }
+      const campaignWithDefaults = Object.assign({}, campaignData.defaults, campaign.toObject())
+      const fieldsToShow = campaign.fieldsToShow || campaignData.defaults.fieldsToShow
       res.render('campaigns/show', {
         pageTitle: req.query.title || campaign.title,
         pageDescription: `${campaign.tagline ? `${campaign.tagline} – ` : ''}${campaign.description}`,
-        campaign: campaign,
+        campaign: campaignWithDefaults,
         defaults: campaignData.defaults,
+        fieldsToShow,
         isAuthenticated: auth.isAuthenticated(req),
         password: auth.getPassword(req),
         triggerbeeId: config.triggerbeeId
@@ -62,10 +64,11 @@ module.exports = {
       if (err || campaign === null) {
         return next(err)
       }
+      const campaignWithDefaults = Object.assign({}, campaignData.defaults, campaign.toObject())
       res.render('campaigns/showDone', {
         pageTitle: req.query.title || campaign.title,
         pageDescription: `${campaign.tagline ? `${campaign.tagline} – ` : ''}${campaign.description}`,
-        campaign: campaign,
+        campaign: campaignWithDefaults,
         defaults: campaignData.defaults,
         isAuthenticated: auth.isAuthenticated(req),
         password: auth.getPassword(req),

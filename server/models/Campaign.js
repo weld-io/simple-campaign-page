@@ -15,7 +15,8 @@ const campaignSchema = {
   // Texts: CTA
   ctaTitle: { type: String },
   doneText: { type: String },
-  // Texts: secondary
+  // Fields and Secondary Text
+  fieldsToShow: { type: [String], default: () => { return null } },
   emailPlaceholder: { type: String },
   companyNamePlaceholder: { type: String },
   pageFooter: { type: String },
@@ -28,11 +29,18 @@ const campaignSchema = {
 }
 
 const valueDefaults = {
-  emailPlaceholder: 'Your work email',
-  companyNamePlaceholder: 'Your company name',
+  fieldsToShow: ['email', 'companyName'],
   ctaTitle: 'Learn more',
   doneText: 'Thank you! We will be in touch.',
-  pageFooter: 'This is a campaign by Weld (Weld Your Own App AB). For questions or if you want to be removed, email contact@weld.io.'
+  pageFooter: 'This is a campaign by Weld (Weld Your Own App AB). For questions or if you want to be removed, email contact@weld.io.',
+
+  emailPlaceholder: 'Your work email',
+  companyNamePlaceholder: 'Your company name',
+  companySizePlaceholder: 'Nr of employees',
+  phonePlaceholder: 'Your phone number',
+  firstNamePlaceholder: 'Your first name',
+  lastNamePlaceholder: 'Your last name',
+  commentsPlaceholder: 'A message to us'
 }
 
 const Campaign = new Schema(campaignSchema)

@@ -25,7 +25,7 @@
 			</tr>
 		</thead>
 		<tbody>
-	<% for(var i=0; i < campaigns.length; i++) { %>
+	<% for (var i=0; i < campaigns.length; i++) { %>
 			<tr>
 				<td>
 					<a href="<%= campaigns[i].slug %>" title="<%= campaigns[i].title %>"><%= campaigns[i].slug %></a>
@@ -48,6 +48,7 @@
 					<%- editButton(campaigns[i]._id, 'ctaTitle', campaigns[i].ctaTitle, isAuthenticated, password, 'CTA') %>
 					<%- editButton(campaigns[i]._id, 'ctaUrl', campaigns[i].ctaUrl, isAuthenticated, password, 'Link') %>
 					<%- editButton(campaigns[i]._id, 'doneText', campaigns[i].doneText, isAuthenticated, password, '“Thank you”') %>
+					<%- editButton(campaigns[i]._id, 'fieldsToShow', campaigns[i].fieldsToShow || ['email,companyName'], isAuthenticated, password, 'Input fields') %>
 				</td>
 				<td>
 					<a href="/export/people/<%= campaigns[i]._id %>?password=<%= password %>">List</a>

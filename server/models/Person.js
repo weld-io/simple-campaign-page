@@ -8,11 +8,15 @@ const Person = new Schema({
   dateCreated: { type: Date, default: Date.now },
   campaign: { type: Schema.Types.ObjectId, ref: 'Campaign', required: true },
   campaignTitle: { type: String },
+
   email: { type: String, required: true },
+
+  companyName: { type: String },
+  companySize: { type: String },
   phone: { type: String },
   firstName: { type: String },
   lastName: { type: String },
-  companyName: { type: String }
+  comments: { type: String }
 })
 
 Person.plugin(findOrCreate)

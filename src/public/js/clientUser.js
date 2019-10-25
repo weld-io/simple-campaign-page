@@ -24,16 +24,12 @@ var SimpleCampaignPage = SimpleCampaignPage || {}
       : document.getElementById(elementId).removeAttribute('disabled')
   }
 
-  SimpleCampaignPage.addPerson = function (campaignId, slug) {
+  SimpleCampaignPage.addPerson = function (campaignId, slug, fieldsToShow) {
+    if ((typeof fieldsToShow) === 'string') fieldsToShow = fieldsToShow.split(',')
+
     var email = document.getElementById('email').value.toLowerCase()
     if (email.length < 6 || email.split('@').length !== 2 || email.split('@')[1].indexOf('.') === -1) {
       window.alert('Please fill in a valid email address')
-      return false
-    }
-
-    var companyName = document.getElementById('companyName').value
-    if (companyName.length < 3) {
-      window.alert('Please fill in a valid company name')
       return false
     }
 
@@ -45,17 +41,22 @@ var SimpleCampaignPage = SimpleCampaignPage || {}
 
     var jsonObj = {
       campaign: campaignId,
-      campaignTitle: campaignTitle,
-      email: email,
-      companyName: companyName
+      campaignTitle,
+      email
+    }
+    for (var i = 0; i < fieldsToShow.length; i++) {
+      var fieldName = fieldsToShow[i]
+      if (fieldName !== 'email') {
+        jsonObj[fieldName] = document.getElementById(fieldName).value
+      }
     }
 
     // Post to server
     SimpleCampaignPage.apiRequest('post', 'people', undefined, jsonObj, undefined, function (result) {
       SimpleCampaignPage.trackSignup(slug, function () {
-        location.href = location.href.replace(location.pathname, location.pathname + '/done')
+        window.location.href = window.location.href.replace(location.pathname, location.pathname + '/done')
       })
-      SimpleCampaignPage.createTriggerbeeContact(email, companyName, campaignTitle)
+      SimpleCampaignPage.createTriggerbeeContact(email, jsonObj.companyName, campaignTitle)
     })
     return false
   }
@@ -73,7 +74,7 @@ var SimpleCampaignPage = SimpleCampaignPage || {}
     gtag('event', 'get_content', {
       content: slug,
       event_callback: function () {
-        location.href = event.target.getAttribute('href')
+        window.location.href = event.target.getAttribute('href')
       }
     })
   }
