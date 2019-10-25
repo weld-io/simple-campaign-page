@@ -11,7 +11,7 @@ const morgan = require('morgan') // logger
 // const methodOverride = require('method-override');
 
 module.exports = function (app, config) {
-  app.set('views', config.root + '/app/views')
+  app.set('views', config.root + '/src/views')
   app.set('view engine', 'ejs')
 
   // app.use(favicon(config.root + '/public/img/favicon.ico'));
@@ -20,7 +20,7 @@ module.exports = function (app, config) {
   app.use(bodyParser.urlencoded({ extended: true }))
   // app.use(cookieParser());
   app.use(compress())
-  app.use(express.static(config.root + '/public'))
+  app.use(express.static(config.root + '/src/public'))
 
   // Other NPMs
   app.use('/weld-static-assets', express.static(config.root + '/node_modules/@weld-io/weld-static-assets'))
@@ -30,7 +30,7 @@ module.exports = function (app, config) {
   // Routing
 
   // Require in all API controllers
-  glob.sync(config.root + '/app/controllers/api/*.js').forEach(controllerPath => require(controllerPath)(app, config))
+  glob.sync(config.root + '/server/controllers/api/*.js').forEach(controllerPath => require(controllerPath)(app, config))
 
   // Other routes
   require('./routes')(app, config)

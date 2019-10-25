@@ -4,10 +4,10 @@
   "description": "Simple Campaign Page makes it easy to set up landing pages with very little configuration.",
   "author": "Tom Söderlund",
   "license": "MIT",
-  "main": "app/server.js",
+  "main": "server/server.js",
   "scripts": {
-    "dev": "nodemon app/server.js",
-    "start": "node app/server.js",
+    "dev": "nodemon server/server.js",
+    "start": "node server/server.js",
     "test": "node test/app.js",
     "lint": "standard",
     "fix": "standard --fix"

@@ -11,8 +11,8 @@ module.exports = function (app, config) {
   app.use('/', router)
 
   // Web
-  const campaignsController = require(config.root + '/app/controllers/web/campaigns')
-  const csvExportController = require(config.root + '/app/controllers/web/csvExport')
+  const campaignsController = require(config.root + '/server/controllers/web/campaigns')
+  const csvExportController = require(config.root + '/server/controllers/web/csvExport')
 
   router.get('/export/people/:campaignId', csvExportController.listPeople)
   router.get('/export/people', csvExportController.listPeople)
