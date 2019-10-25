@@ -19,18 +19,19 @@ Made by the team at **Weld** ([www.weld.io](https://www.weld.io?utm_source=githu
 
 Start with:
 
-	npm run dev # development mode
+	export API_PASSWORD=123
+	yarn dev # development mode
 
 or
 
-	npm start # production mode
+	yarn start # production mode
 
 Server will default to **http://localhost:3041**
 
 
 ## How to Test
 
-	npm test
+	yarn test
 
 
 ## Entities

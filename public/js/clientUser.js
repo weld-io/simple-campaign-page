@@ -13,7 +13,7 @@ var SimpleCampaignPage = SimpleCampaignPage || {}
         console.log('success', result)
       },
       error: cbError || function (err) {
-        console.error('error', err)
+        console.error('error', err.statusText, err)
       }
     })
   }
