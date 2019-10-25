@@ -6,14 +6,14 @@
 <body>
 
 <main class="padded">
-  <p>Email: <%- person.email %></p>
-  <p>Phone: <%- person.phone %></p>
-  <p>Company: <%- person.companyName %></p>
-  <p>First name: <%- person.firstName %></p>
-  <p>Last name: <%- person.lastName %></p>
-  <p>Date created: <%- formatDateTime(person.dateCreated) %></p>
-  <p>Campaign page: <a target="_blank" href="/<%= person.campaign ? person.campaign.slug : '' %>"><%= person.campaign ? person.campaign.slug : '' %></a></p>
-  <p>Campaign Title: <%- person.campaignTitle %></p>
+  <p><strong>Email:</strong> <%- person.email %></p>
+  <p><strong>Phone:</strong> <%- person.phone %></p>
+  <p><strong>Company:</strong> <%- person.companyName %></p>
+  <p><strong>First name:</strong> <%- person.firstName %></p>
+  <p><strong>Last name:</strong> <%- person.lastName %></p>
+  <p><strong>Date created:</strong> <%- formatDateTime(person.dateCreated) %></p>
+  <p><strong>Campaign page:</strong> <a target="_blank" href="/<%= person.campaign ? person.campaign.slug : '' %>"><%= person.campaign ? person.campaign.slug : '' %></a></p>
+  <p><strong>Campaign Title:</strong> <%- person.campaignTitle %></p>
 </main>
 
 <% include ../shared/pageFooter %>
