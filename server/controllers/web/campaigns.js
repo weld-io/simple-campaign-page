@@ -31,7 +31,7 @@ module.exports = {
     Campaign.find(searchQuery).limit(50).sort(sorting).exec(function (err, campaigns) {
       if (err) { return next(err) }
       res.render('campaigns/list', {
-        title: 'Campaigns',
+        pageTitle: 'Campaigns',
         campaigns: campaigns,
         isAuthenticated: auth.isAuthenticated(req),
         password: auth.getPassword(req)
@@ -47,6 +47,7 @@ module.exports = {
       }
       res.render('campaigns/show', {
         pageTitle: req.query.title || campaign.title,
+        pageDescription: `${campaign.tagline ? `${campaign.tagline} – ` : ''}${campaign.description}`,
         campaign: campaign,
         defaults: campaignData.defaults,
         isAuthenticated: auth.isAuthenticated(req),
@@ -63,6 +64,7 @@ module.exports = {
       }
       res.render('campaigns/showDone', {
         pageTitle: req.query.title || campaign.title,
+        pageDescription: `${campaign.tagline ? `${campaign.tagline} – ` : ''}${campaign.description}`,
         campaign: campaign,
         defaults: campaignData.defaults,
         isAuthenticated: auth.isAuthenticated(req),
