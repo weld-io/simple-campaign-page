@@ -7,14 +7,20 @@ var SimpleCampaignPageAdmin = SimpleCampaignPageAdmin || {}
 
   SimpleCampaignPageAdmin.editDataField = function (collectionName, recordId, fieldName, defaultValue, password) {
     var newData = {}
-    var newDefaultValue = defaultValue.replace(/[\[\]]/g, '') // array, remove []
+    // Array remove [] and 'undefined'
+    var newDefaultValue = defaultValue.replace(/[\[\]]/g, '').replace('undefined', '')
     newData[fieldName] = cleanString(window.prompt(fieldName + '?', newDefaultValue))
+    // Non-null = Not clicked 'Cancel'
     if (newData[fieldName] !== null) {
       // If boolean
       if (newData[fieldName] === 'true') newData[fieldName] = true
       // If array, then split
       if (defaultValue.indexOf('[') !== -1) {
         newData[fieldName] = newData[fieldName].split(',')
+      }
+      // Empty value
+      if (newData[fieldName] === '') {
+        newData[fieldName] = null
       }
       SimpleCampaignPage.apiRequest('put', collectionName, recordId, newData, password, function (result) {
         location.reload()
