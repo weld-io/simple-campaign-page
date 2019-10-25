@@ -30,7 +30,7 @@
 				<td>
 					<a href="<%= campaigns[i].slug %>" title="<%= campaigns[i].title %>"><%= campaigns[i].title %></a> (preview)
 					/ <a href="<%= campaigns[i].slug %>/done" title="Thank you page">page 2</a>
-					<br/><%- editButton(campaigns[i]._id, 'slug', campaigns[i].slug, isAuthenticated, password, 'Change slug') %>
+					<br/><%- editButton(campaigns[i]._id, 'slug', campaigns[i].slug, isAuthenticated, password, 'Change page link') %>
 				</td>
 				<td><%= formatDate(campaigns[i].dateCreated) %></td>
 				<td class="hero<%= campaigns[i].darkText ? ' dark-text' : ' light-text' %>"
