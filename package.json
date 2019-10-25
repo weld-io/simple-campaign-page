@@ -6,6 +6,7 @@
   "license": "MIT",
   "main": "server/server.js",
   "scripts": {
+    "webpack": "webpack-cli",
     "dev": "nodemon server/server.js",
     "start": "node server/server.js",
     "test": "node test/app.js",
@@ -14,7 +15,8 @@
   },
   "standard": {
     "ignore": [
-      "public/js/jquery-ajax.js"
+      "dist",
+      "src/public/js/jquery-ajax.js"
     ],
     "globals": [
       "$",
@@ -39,9 +41,12 @@
     "morgan": "^1.8.1"
   },
   "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
     "nodemon": "^1.11.0",
     "standard": "^12.0.1",
     "supertest": "^3.0.0",
-    "tape": "^4.6.3"
+    "tape": "^4.6.3",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
   }
 }
