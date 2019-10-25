@@ -21,7 +21,7 @@ const listPeople = function (req, res, next) {
   // Sorting
   const sorting = { 'dateCreated': 1 }
   // Execute query
-  Person.find(filter).limit(200).sort(sorting).populate('campaign').exec(function (err, people) {
+  Person.find(filter).limit(1000).sort(sorting).populate('campaign').exec(function (err, people) {
     if (err) { return next(err) }
     if (!auth.isAuthenticated(req)) { return next({ message: 'Not authenticated', status: 404 }) }
 
