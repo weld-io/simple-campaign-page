@@ -1,7 +1,9 @@
 'use strict'
 
 const bodyParser = require('body-parser')
-const compress = require('compression')
+const cacheControl = require('express-cache-controller')
+const compression = require('compression')
+const minify = require('express-minify')
 // const cookieParser = require('cookie-parser');
 // const cors = require('cors');
 const express = require('express')
@@ -19,7 +21,17 @@ module.exports = function (app, config) {
   app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({ extended: true }))
   // app.use(cookieParser());
-  app.use(compress())
+  app.use(cacheControl({
+    maxAge: 7 * 24 * 60 * 60 * 1000
+  }))
+  app.use(compression())
+  app.use(minify({
+    // cache: false,
+    // uglifyJsModule: null,
+    // errorHandler: null,
+    jsMatch: /js/,
+    cssMatch: /css/
+  }))
   app.use(express.static(config.root + '/src/public'))
 
   // Other NPMs
