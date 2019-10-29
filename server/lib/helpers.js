@@ -101,17 +101,13 @@ module.exports.sendResponse = function (err, results, callback) {
     : (err ? 400 : 200)
   // console.log('sendResponse', {errorCode, err, results}, typeof(callback));
   if (errorCode !== 200) {
-  console.log(`sendResponse 1:`, errorCode, err)
     return this.status(errorCode).send({ error: err, code: errorCode })
   } else {
     if (typeof (callback) === 'function') {
-  console.log(`sendResponse 2:`, errorCode, results)
       callback(results)
     } else if (results.toJSON) {
-  console.log(`sendResponse 3:`, errorCode, results)
       return this.json(results.toJSON())
     } else {
-  console.log(`sendResponse 4:`, errorCode, results)
       return this.json(results)
     }
   }
