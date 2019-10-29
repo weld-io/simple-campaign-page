@@ -37,7 +37,7 @@
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "mongodb": "^2.2.29",
-    "mongoose": "^4.10.8",
+    "mongoose": "^5.7.5",
     "mongoose-crudify": "^0.2.0",
     "mongoose-findorcreate": "^1.0.1",
     "morgan": "^1.8.1"
