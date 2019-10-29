@@ -17,8 +17,16 @@ const campaignSchema = {
   doneText: { type: String },
   // Fields and Secondary Text
   fieldsToShow: { type: [String], default: () => { return null } },
+
+  // Field placeholders
   emailPlaceholder: { type: String },
   companyNamePlaceholder: { type: String },
+  companySizePlaceholder: { type: String },
+  phonePlaceholder: { type: String },
+  firstNamePlaceholder: { type: String },
+  lastNamePlaceholder: { type: String },
+  commentsPlaceholder: { type: String },
+
   pageFooter: { type: String },
   // Links
   ctaUrl: { type: String }, // e.g. download something
@@ -36,7 +44,7 @@ const valueDefaults = {
 
   emailPlaceholder: 'Your work email',
   companyNamePlaceholder: 'Your company name',
-  companySizePlaceholder: 'Nr of employees',
+  companySizePlaceholder: 'Team size',
   phonePlaceholder: 'Your phone number',
   firstNamePlaceholder: 'Your first name',
   lastNamePlaceholder: 'Your last name',
