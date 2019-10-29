@@ -41,6 +41,7 @@ const createPerson = function (req, res, next) {
     function (err, result, wasCreated) {
       const doResult = (err, result) => {
         req.crudify = { err, result, person: result }
+        console.log(`req.crudify:`, req.crudify)
         next()
       }
       if (wasCreated) {
@@ -49,6 +50,7 @@ const createPerson = function (req, res, next) {
       } else {
         // Update existing person
         result.campaign = newPerson.campaign
+        console.log(`result:`, result)
         result.save(doResult)
       }
     }
