@@ -1,5 +1,23 @@
 <% if (people.length === 0) {
 %>List is empty<% }
-%><% for (var i=0; i < people.length; i++) {
-%><%= people[i].email %>,<%= people[i].companyName %>,<%= people[i].campaignTitle %>,<%= people[i].campaign ? people[i].campaign.slug : '' %>,<%= formatDateTime(people[i].dateCreated) %>
+%><%
+
+const EXCLUDE_FIELDS = [
+  '__v',
+  'email',
+  'campaign',
+  'campaignTitle',
+  'dateCreated'
+]
+
+for (var i=0; i < people.length; i++) {
+%><%= people[i].email %>,<%= people[i].campaignTitle %>,<%= people[i].campaign ? people[i].campaign.slug : '' %>,<%= formatDateTime(people[i].dateCreated) %>,<%
+
+let key, value
+
+for (var f=0; f < Object.keys(people[i].toJSON()).length; f++) {
+  key = Object.keys(people[i].toJSON())[f]
+  value = people[i].toJSON()[key]
+%><%= (!EXCLUDE_FIELDS.includes(key) ? `${value},` : '') %><%
+} %>
 <% } %>
